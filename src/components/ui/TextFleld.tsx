@@ -1,28 +1,47 @@
-import { FontAwesome6 } from "@expo/vector-icons";
-import { TextInput, TextInputProps } from "react-native";
+import { MaterialIcons } from "@expo/vector-icons";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, TextInput, TextInputProps } from "react-native";
+import { global } from "./styles";
 
 type Props = TextInputProps & {
     label: string;
     errorText?: string;
-    icon?: keyof typeof FontAwesome6.glyphMap; 
+    icon?: keyof typeof MaterialIcons.glyphMap; 
 }
 
-export default function TextField( {label, errorText, icon } : Props) {
+const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) => {
+
     return (
-    <View>
-        <Text>Teste de label</Text>
-        <View>
-            {!! icon && (
-                <View>
-                    <FontAwesome6 name={icon} size={18} color="purple" />
-                </View>
-            )}
-            <TextInput 
-                value="Isso é um teste"
-            />
+        <View style={global.inputGroup}>
+            <Text style={global.label}>{label}</Text>
+            <View style={[global.inputIcon, errorText ? global.inputError : null]}>
+                {!! icon && (
+                    <View>
+                        <MaterialIcons name={icon} size={22} color="purple" />
+                    </View>
+                )}
+                <TextInput 
+                    keyboardAppearance="dark"
+                    placeholderTextColor="#a0b2cfff"
+                    style={[global.input, style]}
+                    /* const TextField = (props: Props) => {
+                        const label = props.label;
+                        const errorText = props.errorText;
+                        const style = props.style;
+                        const value = props.value;
+                        const onChangeText = props.onChangeText;
+                        const placeholder = props.placeholder;
+                        const autoCapitalize = props.autoCapitalize;
+                        const keyboardType = props.keyboardType;
+                    } */
+                    {...restInputProps}
+                />
             </View>
+            {!! errorText && 
+                <Text style={global.inerrorText}>{errorText}</Text>
+                }
         </View>
     )
-}
+};
+
+export default TextField;
