@@ -17,7 +17,7 @@ const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) 
             <View style={[global.inputIcon, errorText ? global.inputError : null]}>
                 {!! icon && (
                     <View>
-                        <MaterialIcons name={icon} size={22} color="purple" />
+                        <MaterialIcons name={icon} size={22} color="#0846ffff" />
                     </View>
                 )}
                 <TextInput 
