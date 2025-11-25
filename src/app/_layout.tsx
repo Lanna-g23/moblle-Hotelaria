@@ -1,7 +1,7 @@
-/*  */
 import { Slot } from "expo-router";
 
-export default function RootLayout(){
+const RootLayout = () => {
     {/* Slot atribui ao roteamento  */}
     return <Slot/>
 }
+export default RootLayout;

@@ -1,37 +1,47 @@
-import { TouchableOpacity } from "react-native";
-import AuthContainer  from "../ui/AuthContainer";
-import PasswordField from "../ui/PasswordField";
-import TextField  from "../ui/TextFleld";
-import { global } from "../ui/styles";
-import { Text } from "@react-navigation/elements";
+import AuthContainer from "@/components/ui/AuthContainer";
+import { router } from "expo-router";
+import { Text, TouchableOpacity } from "react-native";
+import PassField from "../ui/PasswordField";
+import TextField from "../ui/TextFleld";
+import { Button } from "./Button";
+import { style } from "./style";
+
 
 const RenderLogin = () => {
-    return (
+    return(
         <AuthContainer
-            title="Bem-vindo"
-            subtitle="Faça seu login para continuar!"
-            icon="hotel">
-           
-           {/* children */}
+            title="Bem-Vindo"
+            subtitle="Faça seu login"
+            icon="hotel"
+            >
+                       
             <TextField
                 label="E-mail"
-                icon="email"
+                icon={{lib: "MaterialIcons", name: "email"}}
                 placeholder="Digite seu E-mail"
-                keyboardType="email-address"
-            />
+            >
+            </TextField>
 
-            <PasswordField
+            <PassField
                 label="Senha"
-                icon="lock"
+                icon={{lib: "MaterialIcons", name: "key"}}
                 placeholder="Digite sua senha"
+            >
+            </PassField>
+
+            <Button
+                title="Login"
+                onPress={()=> router.push("/(tabs)/explorer")}
             />
-
-            <TouchableOpacity style={[global.primeryButton]}>
-                <Text style={global.primeryButtonText}>Entrar</Text>
+            
+            
+            <TouchableOpacity onPress={()=> router.push("/(auth)/resetPass")}>
+                <Text style={style.changePassTxt}>Redefina a sua senha!</Text>
             </TouchableOpacity>
-
+            <TouchableOpacity onPress={()=> router.push("/(auth)/register")}>
+                <Text style={style.changePassTxt}>Cadastre-se!</Text>
+            </TouchableOpacity>
         </AuthContainer>
     )
-};
-
+}
 export default RenderLogin;

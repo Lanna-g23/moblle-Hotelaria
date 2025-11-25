@@ -12,19 +12,23 @@ type Props = {
 }
 
 const AuthContainer = ({ title, subtitle, icon, children }: Props) => {
+    
     return (
     <SafeAreaView style={global.safeArea}>
         <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={global.keyboardAvoiding}>
             <ScrollView contentContainerStyle={global.conteiner}>
+                
                 <View style={global.header}>
-                    {!!icon && <FontAwesome6 name={icon} size={30} color="#012bffff" />}
-                    <Text style={global.title}>{title}</Text>
-                    {!!subtitle && <Text style={global.subtitle}>{subtitle}</Text>}
+                    {!!icon && <FontAwesome6 name={icon} size={50} color="#0000cbff" />}
+                    <Text style={[global.textWhite, global.title]}>{title}</Text>
+                    {!!subtitle && <Text style={[global.textWhite, global.subtitle]}>{subtitle}</Text>}
                     </View>
+
                     <View style={global.content}>
                         {children}
                     </View>
+
                 </ScrollView>
             </KeyboardAvoidingView>
         </SafeAreaView>

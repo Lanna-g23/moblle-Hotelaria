@@ -1,4 +1,4 @@
-import RenderLogin  from "@/components/login";
+import RenderLogin from "@/components/login";
 
 /* Login */
 const Login = () => {
@@ -6,5 +6,4 @@ const Login = () => {
         <RenderLogin />
     );
 }
-
 export default Login;

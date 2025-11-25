@@ -1,26 +1,34 @@
-import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome6, MaterialIcons } from "@expo/vector-icons";
 import React from "react";
-import { View, Text, TextInput, TextInputProps } from "react-native";
+import { Text, TextInput, TextInputProps, View } from "react-native";
 import { global } from "./styles";
+
+type NameIcon = 
+    | {lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
+    | {lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap };
 
 type Props = TextInputProps & {
     label: string;
     errorText?: string;
-    icon?: keyof typeof MaterialIcons.glyphMap; 
+    icon?: NameIcon; 
 }
 
 const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) => {
-
     return (
         <View style={global.inputGroup}>
+
             <Text style={global.label}>{label}</Text>
-            <View style={[global.inputIcon, errorText ? global.inputError : null]}>
+            
+            <View style={[global.inputBox, global.inputBorder, errorText ? global.inpError : null]}>
                 {!! icon && (
                     <View>
-                        <MaterialIcons name={icon} size={22} color="#0846ffff" />
-                    </View>
+                        {icon.lib === "MaterialIcons" && (
+                        <MaterialIcons style={global.icon} name={icon.name} size={23} color="#0846ffff" />
+                    )}
+                </View>
                 )}
-                <TextInput 
+                
+                <TextInput
                     keyboardAppearance="dark"
                     placeholderTextColor="#a0b2cfff"
                     style={[global.input, style]}
@@ -38,8 +46,8 @@ const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) 
                 />
             </View>
             {!! errorText && 
-                <Text style={global.inerrorText}>{errorText}</Text>
-                }
+                <Text style={global.errotext}>{errorText}</Text>
+            }
         </View>
     )
 };
