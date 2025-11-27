@@ -3,7 +3,11 @@ import { Modal, Platform, Text, TouchableOpacity, View } from "react-native";
 import DatePicker from '@react-native-community/datetimepicker';
 import { global } from "./styles";
 
-const DateSelector = () => {
+type Propw = {
+    label: string;
+}
+
+const DateSelector = ({label}:Propw) => {
     const [open, setOpen] = useState(false);
     const [date, setDate] = useState(new Date());
 
@@ -18,7 +22,7 @@ const DateSelector = () => {
     return(
         <View style={global.conteiner}>
             <TouchableOpacity style={global.button} onPress={() => setOpen(true)}>
-                <Text style={global.buttonText}>Selecionar Data</Text>
+                <Text style={global.buttonText}>Selecionar Data {/*label*/}</Text>
                 <Text style={global.dateText}>{date.toLocaleDateString('pt-BR')}</Text>
             </TouchableOpacity>
 

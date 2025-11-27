@@ -6,8 +6,6 @@ import TextField from "../ui/TextFleld";
 import { Button } from "./Button";
 import { style } from "./style"
 
-
-
 const RenderResetpass = () => {
     return(
         <AuthContainer
