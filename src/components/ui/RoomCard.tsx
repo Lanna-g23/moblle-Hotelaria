@@ -1,5 +1,4 @@
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-
 const RoomCard = () => {
   return (
     <View style={{ maxWidth: 320, margin: 10, borderRadius: 20, backgroundColor: '#89a8f8ff' }}>
@@ -13,7 +12,7 @@ const RoomCard = () => {
           <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 8 }}>
             quarto 1
           </Text>
-          <Text style={{ color: '#020798ff', fontSize: 14 }}>
+          <Text style={{ color: '#0e00aaff', fontSize: 14 }}>
             exceto a Antártida
           </Text>
         </View>
