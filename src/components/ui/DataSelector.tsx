@@ -12,14 +12,13 @@ const DateSelector = ({onSelectDate} : Props) => {
 
     return (
         <View>
-
             <DatePicker
                 mode="calendar"
                 options={{
-                mainColor: "#4b0505",
-                textHeaderColor: "#4b0505",
-                textDefaultColor: "#4b0505",
-                textSecondaryColor: "#4b0505",
+                mainColor: "#01168bff",
+                textHeaderColor: "#000f7fff",
+                textDefaultColor: "#0122dcff",
+                textSecondaryColor: "#0019a4ff",
                 textFontSize: 14,
                 textHeaderFontSize: 16
                 }}

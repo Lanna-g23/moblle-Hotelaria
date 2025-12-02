@@ -16,7 +16,6 @@ const RenderExplorer = () => {
   const [calendar, setCalendar] = useState <"checkin" | "checkout">();
 
   return (
-
     <AuthContainer>
       <View style={global.content}>
         <TouchableOpacity onPress={() => setCalendar("checkin")}>
@@ -26,12 +25,9 @@ const RenderExplorer = () => {
             placeholder='Selecione a data de Check-In'
           />
         </TouchableOpacity>
-
-        {
-        calendar == "checkin" && (
-          <DateSelector onSelectDate={(date) => {setCheckIn(date)}}/>
+        {calendar == "checkin" && (
+          <DateSelector onSelectDate={(data) => {setCheckIn(data)}}/>
         )}
-
         <TouchableOpacity onPress={() => setCalendar("checkout")}>
           <TextField
             label='Chek-Out'
@@ -39,12 +35,9 @@ const RenderExplorer = () => {
             placeholder='Selecione a data de Check-Out'
           />
         </TouchableOpacity>
-        
-        {
-        calendar == "checkout" && (
-          <DateSelector onSelectDate={(date) => {setCheckOut(date)}}/>
+        {calendar == "checkout" && (
+          <DateSelector onSelectDate={(data) => {setCheckOut(data)}}/>
         )}
-
         <ScrollView horizontal>
           <RoomCard/>
           <RoomCard/>
@@ -58,10 +51,8 @@ const RenderExplorer = () => {
           <RoomCard/>
           <RoomCard/>
         </ScrollView>
-          
       </View>
     </AuthContainer> 
-
   )
 
 }  

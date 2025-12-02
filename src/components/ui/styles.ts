@@ -16,9 +16,10 @@ export const global =StyleSheet.create({
     },
 
     conteiner:{
-        paddingHorizontal: width * 0.07,
-        paddingTop: height * 0.05,
-        paddingBottom: height * 0.05
+        paddingHorizontal: width * 0.04,
+        paddingTop: height * 0.02,
+        paddingBottom: height * 0.05,
+
     },
 
     header: {
@@ -51,13 +52,20 @@ export const global =StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#c7dcffff",
         borderRadius: 10,
-        padding: width * 0.04,
+        padding: width * 0.01, //mais consistente
+
+        //Sombra Ios
         shadowColor: "#000000ff",
-        shadowOpacity: 0.09,
+        shadowOpacity: 0.08,
         shadowRadius: 10,
-        elevation: 7,
+        //mover a sombra para baixo da tela
+        shadowOffset: { width: 0, height: 3 },
+
+        //Sombra Android
+        elevation: 4,
+
         paddingBottom: width * 0.07,
-        marginBottom: height * 0.07
+        marginBottom: 20,
     },
 
     inputBox: {

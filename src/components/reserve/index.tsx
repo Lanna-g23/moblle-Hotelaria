@@ -8,7 +8,7 @@ import AuthContainer from '../ui/AuthContainer';
 const RenderReserve = () => {
   return (
     <AuthContainer>
-      <View style={global.container}> 
+      <View style={global.conteiner}> 
         <View style={{borderBottomWidth:2}}>
           <RoomCard/>
           <ReserveCard/>
