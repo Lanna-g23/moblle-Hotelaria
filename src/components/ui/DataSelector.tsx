@@ -44,7 +44,8 @@ const DateSelector = ({ onSelectDate, onClose }: Props) => {
                         textSecondaryColor: "#0011ffff",
                         textFontSize: 15,
                         textHeaderFontSize: 16,
-                        
+                        defaultFont: "System",
+                        headerFont: "System"
                     }}
                     style={{ 
                         borderRadius: 14, 
