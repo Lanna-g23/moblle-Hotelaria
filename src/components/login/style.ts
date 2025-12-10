@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 export const style = StyleSheet.create({
 
-  button: {
-    marginTop: 18,
+  button2: {
+    marginTop: 20,
     paddingVertical: 13,
     paddingHorizontal: 54,
     borderRadius: 10,
@@ -11,9 +11,9 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 44,
     elevation: 19,
-    shadowColor: '#000000ff',
-    shadowOpacity: 0.5,
-    shadowRadius: 5,
+    shadowColor: '#021dcdff',
+    shadowOpacity: 0.6,
+    shadowRadius: 10,
   },
 
   fullWidth: {
@@ -22,7 +22,7 @@ export const style = StyleSheet.create({
 
   text: {
     fontSize: 18,
-    fontWeight: '600',
+    fontWeight: '500',
   },
 
   disabled: {
@@ -32,7 +32,7 @@ export const style = StyleSheet.create({
   changePassTxt:{
     color: "#0015b4ff",
     textDecorationLine: "underline",
-    marginTop: 27,
+    marginTop: 26,
   },
 
 }

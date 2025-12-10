@@ -3,7 +3,7 @@ const {width, height} = Dimensions.get("window");
 
 export const style = StyleSheet.create({
 
-  button: {
+  button3: {
     display: "flex",
     marginTop: 19,
     paddingVertical: 14,

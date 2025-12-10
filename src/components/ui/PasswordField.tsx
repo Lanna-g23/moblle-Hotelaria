@@ -23,6 +23,7 @@ const PassField = (props: Props) => {
                 <Ionicons name={show ? "eye-outline" : "eye-off-outline"} size={23}
                 color="#040680ff"/>
             </TouchableOpacity>
+            
         </View>
     );
 };

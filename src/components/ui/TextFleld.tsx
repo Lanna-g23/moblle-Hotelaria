@@ -8,7 +8,8 @@ type NameIcon =
     | { lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
     | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap }
     | { lib: "MaterialCommunityIcons"; name: keyof typeof MaterialCommunityIcons.glyphMap };
-type Props = TextInputProps & {
+
+   type Props = TextInputProps & {
     label: string;
     errorText?: string;
     icon?: NameIcon; 
@@ -18,7 +19,7 @@ const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) 
     return (
         <View style={global.inputGroup}>
 
-            <Text style={global.label}>{label}</Text>
+            <Text style={global.label2}>{label}</Text>
             
             <View style={[global.inputBox, global.inputBorder, errorText ? global.inpError : null]}>
                 {!! icon && (
@@ -57,5 +58,4 @@ const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) 
         </View>
     )
 };
-
 export default TextField;

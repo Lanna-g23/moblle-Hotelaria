@@ -24,35 +24,35 @@ const RenderRegister = () => {
             <TextField
                 label="E-mail"
                 icon={{lib: "MaterialIcons", name: "email"}}
-                placeholder="email@email.com"
+                placeholder="Digite seu E-mail:"
             >
             </TextField>
 
             <TextField
                 label="CPF"
                 icon={{lib: "MaterialIcons", name: "email"}}
-                placeholder="000.000.000-00"
+                placeholder="Digite seu CPF:"
             >
             </TextField>
 
             <TextField
                 label="Telefone"
                 icon={{lib: "MaterialIcons", name: "phone"}}
-                placeholder="(00) 00000-000"
+                placeholder="Digite seu Telefone:"
             > 
             </TextField>
 
             <PassField
                 label="Senha"
                 icon={{lib: "MaterialIcons", name: "key"}}
-                placeholder="***********"
+                placeholder="Digite a Senha "
             >
             </PassField>
 
             <PassField
                 label="Senha"
                 icon={{lib: "MaterialIcons", name: "key"}}
-                placeholder="***********"
+                placeholder="Confirma a Senha"
             >
             </PassField>
 

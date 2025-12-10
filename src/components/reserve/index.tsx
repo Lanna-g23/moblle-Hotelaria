@@ -9,11 +9,11 @@ const RenderReserve = () => {
   return (
     <AuthContainer>
       <View style={global.conteiner}> 
-        <View style={{borderBottomWidth:2}}>
+        <View style={{borderBottomWidth: 2}}>
           <RoomCard/>
           <ReserveCard/>
         </View>
-        <View style={{borderBottomWidth:2}}>
+        <View style={{borderBottomWidth: 2}}>
           <RoomCard/>
           <ReserveCard/>
         </View>

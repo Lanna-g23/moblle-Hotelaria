@@ -23,7 +23,7 @@ export const Button: React.FC<CustomButtonProps> = ({
   return (
     <TouchableOpacity
       style={[
-        style.button,
+        style.button3,
         { backgroundColor },
         fullWidth && style.fullWidth,
         disabled && style.disabled

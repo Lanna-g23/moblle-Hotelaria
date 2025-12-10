@@ -1,5 +1,7 @@
 import { Dimensions, StyleSheet } from "react-native";
+
 const { width, height } = Dimensions.get("window");
+
 export const global =StyleSheet.create({
     textWhite:{
         color: "#000000ff"
@@ -8,7 +10,7 @@ export const global =StyleSheet.create({
     //fundo
     safeArea: {
         flex: 1,
-        backgroundColor: "#bccdf5ff"
+        backgroundColor: "#b4c9faff"
     },
 
     keyboardAvoiding: {
@@ -19,33 +21,11 @@ export const global =StyleSheet.create({
         paddingHorizontal: width * 0.04,
         paddingTop: height * 0.02,
         paddingBottom: height * 0.05,
-
     },
 
     header: {
         alignItems: "center",
-        marginBottom: height * 0.03
-    },
-
-    title: {
-        fontSize: 25,
-        fontWeight: "800",
-        color: "#050184ff"
-        /*Para atribuir cor: color:*/
-    },
-
-    //Subtitulo a Baixo do titulo
-    subtitle: {
-        fontSize: 19,
-        color: "#0704b8ff",
-        marginTop: height * 0.01,
-        marginBottom: height * 0.01,
-    },
-
-    inputBorder: {
-        elevation: 9,
-        shadowColor: "#000000ff",
-        shadowOpacity: 1,
+        marginBottom: height * 0.03,
     },
 
     content: {
@@ -68,6 +48,28 @@ export const global =StyleSheet.create({
         marginBottom: 20,
     },
 
+    title: {
+        fontSize: 25,
+        fontWeight: "800",
+        color: "#050184ff"
+        /*Para atribuir cor: color:*/
+    },
+
+    //Subtitulo a Baixo do titulo
+    subtitle: {
+        fontSize: 19,
+        fontWeight: "400",
+        color: "#0704b8ff",
+        marginTop: height * 0.01,
+        marginBottom: height * 0.01,
+    },
+
+    inputBorder: {
+        elevation: 8,
+        shadowColor: "#000000ff",
+        shadowOpacity: 6,
+    },
+
     inputBox: {
         alignItems: "center",
         display: "flex",
@@ -75,7 +77,7 @@ export const global =StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#9ec1f8ff",
         paddingLeft: 10,
-        paddingRight: width * 0.1,
+        paddingRight: width * 0.2,
         maxWidth: width * 0.7,
         minWidth: width * 0.8
     },
@@ -86,69 +88,19 @@ export const global =StyleSheet.create({
 
     inpError:{
         elevation: 8,
-        shadowColor: "#ff0000ff",
+        shadowColor: "#000000ff",
     },
 
     errotext:{
         color: "red",
         fontSize: 13,
         marginTop: height * 0.05
-
-    },
-
-    //Inputs
-    inputGroup: {
-        marginBottom: height * 0.02,
-    },
-
-    //as letras que o orienta(Ex: e-mail, senha)
-    label: {
-        fontSize: 15,
-        fontWeight: "600",
-        color: "#0427b4ff",
-        marginBottom: height * 0.01
-    },
-    
-    //espaços do iconis
-    inputIcon:{
-        display: "flex",
-        backgroundColor: "#a9b9f7ff",
-        paddingLeft: width * 0.02,
-        flexDirection: "row",
-        alignItems: "center",
-        borderWidth: 2,
-        borderColor: "#d1d6f8ff",
-        borderRadius: 10,
-        maxWidth: width * 0.7,
-        minWidth: width * 0.7
-    },
-
-   /* inputError: {
-        backgroundColor: "#fed5d5ff",
-        borderColor: "rgba(156, 83, 83, 1)",
-    },*/
-
-    //Espaço do texto
-    input: {
-        backgroundColor: "#dae4f6ff",
-        flex: 1,
-        fontSize: 17,
-        color: "#0a1ed1ff",
-        fontWeight: "600",
-        paddingHorizontal: width * 0.02
     },
 
     eyeIcon: {
         position: "absolute",
-        right: 8,
+        right: 10,
         top: 40
-    },
-
-    inerrorText: {
-        color: "red",
-        fontWeight: "600",
-        fontSize: 15,
-        marginTop: height * 0.01
     },
 
     modalView:{
@@ -158,7 +110,7 @@ export const global =StyleSheet.create({
         width:'90%',
         padding:35,
         alignItems:"center",
-        shadowColor:'#ff0000ff',
+        shadowColor:'#000000ff',
         shadowOffset:{
             width:0,
             height:2,
@@ -175,8 +127,7 @@ export const global =StyleSheet.create({
         marginTop: 22,
     },
 
-    
-    button: {
+    /*button: {
         backgroundColor: '#000477ff',
         padding: 10,
         borderRadius: 5,
@@ -210,14 +161,14 @@ export const global =StyleSheet.create({
         borderWidth: 1,
         borderColor: '#9bc3f4ff',
     },
-    
+
     iosPicker: {
         backgroundColor: '#9cb3f6ff',
         borderRadius: 15,
-    },
+    },*/
 
     closeButton: {
-        backgroundColor: '#94adf7ff',
+        backgroundColor: '#5785f9ff',
         padding: 12,
         borderRadius: 20,
         marginTop: 15,
@@ -229,5 +180,144 @@ export const global =StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
- 
+
+    inputGroup: {
+        marginBottom: height * 0.05,
+    },
+
+    //as letras que o orienta(Ex: e-mail, senha)
+    label2: {
+        fontSize: 15,
+        fontWeight: "600",
+        color: "#001d91ff",
+        marginBottom: height * 0.01
+    },
+
+    iconContainer: {
+        marginBottom: 5,
+    },
+
+    titleCard: {
+        fontSize: 17,
+        fontWeight: '600',
+        marginBottom: 9,
+        color: '#0029f4ff',
+    },
+
+    priceContainer: {
+        marginLeft: 10,
+    },
+
+    price: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#207a20ff',
+    },
+
+    touchableFixed: {
+        borderRadius: 20,
+        padding: width * 0.04,
+        height: '100%',
+    },
+
+    cardContentFixed: {
+        padding: width * 0.03,
+        height: height * 0.18,
+        justifyContent: 'space-between',
+    },
+
+    textFixed: {
+        color: '#0107a3ff',
+        fontSize: 15,
+        maxHeight: 40,
+    },
+
+    descriptionContainerFixed: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flex: 1,
+        marginTop: 8,
+    },
+
+    cardContainer: {
+        width: width * 0.9,
+        height: height * 0.4,
+        maxWidth: 340,
+        margin: 10,
+        borderRadius: 20,
+        backgroundColor: '#a2bbfeff',
+    },
+
+
+    /*touchable: {
+        borderRadius: 20,
+        padding: width * 0.03,
+        height: '100%',
+    },
+
+    image: {
+        borderRadius: 10,
+        height: height * 0.20,
+        width: '100%',
+    },
+
+    cardContent: {
+        padding: width * 0.04,
+        height: height * 0.20,
+        justifyContent: 'space-between',
+    },
+
+    text2: {
+        color: '#000000ff',
+        fontSize: 14,
+        maxHeight: 40,
+    },*/
+
+    descriptionContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flex: 1,
+        marginTop: 8,
+    },
+
+    //espaços do iconis
+    /*inputIcon:{
+        display: "flex",
+        backgroundColor: "#a9b9f7ff",
+        paddingLeft: width * 0.02,
+        flexDirection: "row",
+        alignItems: "center",
+        borderWidth: 2,
+        borderColor: "#d1d6f8ff",
+        borderRadius: 10,
+        maxWidth: width * 0.7,
+        minWidth: width * 0.7
+    },*/
+
+
+    //Espaço do texto
+    input: {
+        backgroundColor: "#dae4f6ff",
+        flex: 1,
+        fontSize: 17,
+        color: "#0a1ed1ff",
+        fontWeight: "600",
+        paddingHorizontal: width * 0.02
+    },
+
+    inerrorText: {
+        color: "#ff0000ff",
+        fontWeight: "600",
+        fontSize: 15,
+        marginTop: height * 0.01
+    },
+
+    imageFixed: {
+        borderRadius: 12,
+        height: height * 0.17,
+        width: '99%',
+    },
+    
 });
