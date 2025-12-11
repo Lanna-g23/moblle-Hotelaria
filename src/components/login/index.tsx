@@ -68,6 +68,9 @@ const RenderLogin = () => {
                 label="E-mail"
                 icon={{lib: "MaterialIcons", name: "email"}}
                 placeholder="Digite seu E-mail"
+                value={email}
+                onChangeText={(input) => setEmail(input)}
+                errorText={errors.email}
                 keyboardType="email-address"
             />
 
@@ -75,12 +78,16 @@ const RenderLogin = () => {
                 label="Senha"
                 icon={{lib: "MaterialIcons", name: "key"}}
                 placeholder="Digite sua senha"
+                value={password}
+                onChangeText={(input) => setPassword(input)}
+                errorText={errors.password}
             >
             </PassField>
 
             <Button 
                 title ="Login"
                 onPress={()=> router.push("/(tabs)/explorer")}
+                disabled={!canSubmit}
             />
             
             <TouchableOpacity onPress={()=> router.push("/(auth)/resetPass")}>
