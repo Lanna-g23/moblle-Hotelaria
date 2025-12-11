@@ -65,8 +65,8 @@ export const global =StyleSheet.create({
     },
 
     inputBorder: {
-        elevation: 8,
-        shadowColor: "#000000ff",
+        elevation: 9,
+        shadowColor: "#0000ffff",
         shadowOpacity: 6,
     },
 
@@ -75,10 +75,10 @@ export const global =StyleSheet.create({
         display: "flex",
         flexDirection: "row",
         borderRadius: 10,
-        backgroundColor: "#9ec1f8ff",
-        paddingLeft: 10,
-        paddingRight: width * 0.2,
-        maxWidth: width * 0.7,
+        backgroundColor: "#7faefbff",
+        paddingLeft: 9,
+        paddingRight: width * 0.11,
+        maxWidth: width * 0.9,
         minWidth: width * 0.8
     },
 
@@ -107,16 +107,16 @@ export const global =StyleSheet.create({
         margin: 20,
         backgroundColor: "#91a5e5ff",
         borderRadius: 20,
-        width:'90%',
+        width: '90%',
         padding: 35,
         alignItems:"center",
-        shadowColor:'#000000ff',
+        shadowColor:'#0000ffff',
         shadowOffset:{
             width: 0,
             height: 2,
         },
         shadowOpacity: 0.25,
-        shadowRadius: 4,
+        shadowRadius: 8,
         elevation: 5
     },
 
@@ -211,7 +211,7 @@ export const global =StyleSheet.create({
     price: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#207a20ff',
+        color: '#0f7a0fff',
     },
 
     touchableFixed: {
@@ -246,7 +246,7 @@ export const global =StyleSheet.create({
         maxWidth: 340,
         margin: 10,
         borderRadius: 20,
-        backgroundColor: '#a2bbfeff',
+        backgroundColor: '#99b4fdff',
     },
 
 
@@ -302,7 +302,7 @@ export const global =StyleSheet.create({
         backgroundColor: "#dae4f6ff",
         flex: 1,
         fontSize: 17,
-        color: "#0a1ed1ff",
+        color: "#001affff",
         fontWeight: "600",
         paddingHorizontal: width * 0.02
     },

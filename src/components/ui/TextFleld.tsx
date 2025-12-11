@@ -25,7 +25,7 @@ const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) 
                 {!! icon && (
                     <View>
                         {icon.lib === "MaterialIcons" && (
-                        <MaterialIcons style={global.icon} name={icon.name} size={23} color="#0846ffff" />
+                        <MaterialIcons style={global.icon} name={icon.name} size={25} color="#0846ffff" />
                     )}
                         {icon.lib === "FontAwesome5" && (
                         <FontAwesome5 style={global.icon} name={icon.name} size={23} color="#0846ffff" />
@@ -37,7 +37,7 @@ const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) 
                 )}
                 <TextInput
                     keyboardAppearance="dark"
-                    placeholderTextColor="#a0b2cfff"
+                    placeholderTextColor="#86a3d1ff"
                     style={[global.input, style]}
                     /* const TextField = (props: Props) => {
                         const label = props.label;

@@ -1,5 +1,5 @@
 import { Dimensions, TouchableOpacity, Text, View } from "react-native";
-import DatePicker, { getToday } from "react-native-modern-datepicker";
+import DatePicker from "react-native-modern-datepicker";
 import { global } from "./styles";
 
 type Props = {
@@ -48,7 +48,7 @@ const DateSelector = ({ onSelectDate, onClose }: Props) => {
                         headerFont: "System"
                     }}
                     style={{ 
-                        borderRadius: 14, 
+                        borderRadius: 13, 
                         width: width * 0.8, 
                         height: height * 0.35,
                     }}

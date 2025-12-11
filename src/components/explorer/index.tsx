@@ -52,7 +52,7 @@ const RenderExplorer = () => {
             )}
           </View>
 
-          <View style={{ marginBottom: 20, width: width * 0.9 }}>
+          <View style={{ marginBottom: 18, width: width * 0.7, display: "flex", flexDirection: "column" }}>
             <TouchableOpacity onPress={() => setShowDatePicker("checkout")}>
               <TextField 
                 label="Check-out" 
@@ -72,7 +72,7 @@ const RenderExplorer = () => {
             )}
           </View>
         </View>
-        <ScrollView horizontal style={{ marginBottom: 20 }} showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal style={{ marginBottom: 19 }} showsHorizontalScrollIndicator={false}>
           <RoomCard 
             label="Apartamento Luxo"
             icon={{ lib: "FontAwesome5", name: "bed" }}
@@ -96,7 +96,7 @@ const RenderExplorer = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           <RoomCard 
             label="Suíte Premium"
-             icon={{ lib: "FontAwesome5", name: "star" }}
+             icon={{ lib: "FontAwesome6" , name: "star" }}
             description={{
               title: "Quarto Premium",
               text: "Vista para o mar\nHidromassagem\nServiço de quarto 24h",
@@ -105,7 +105,7 @@ const RenderExplorer = () => {
           />
           <RoomCard 
             label="Apartamento Simples"
-             icon={{ lib: "FontAwesome5", name: "home" }}
+             icon={{ lib: "MaterialIcons", name: "bedtime" }}
             description={{
               title: "Quarto Simples",
               text: "1 cama de casal\nBanheiro privativo\nWiFi gratuito",
