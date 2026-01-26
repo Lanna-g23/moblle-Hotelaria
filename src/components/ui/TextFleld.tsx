@@ -1,5 +1,4 @@
 import { MaterialCommunityIcons, FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
-import React from "react";
 import { Text, TextInput, TextInputProps, View } from "react-native";
 import { global } from "./styles";
 

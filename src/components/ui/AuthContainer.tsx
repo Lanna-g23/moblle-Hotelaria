@@ -1,5 +1,4 @@
 import { FontAwesome6 } from "@expo/vector-icons";
-import React from "react";
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { global } from "./styles";
