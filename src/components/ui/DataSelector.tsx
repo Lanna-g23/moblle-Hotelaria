@@ -43,14 +43,14 @@ const DateSelector = ({ onSelectDate, onClose }: Props) => {
                         textDefaultColor: "#000cb3ff",
                         textSecondaryColor: "#0011ffff",
                         textFontSize: 15,
-                        textHeaderFontSize: 16,
+                        textHeaderFontSize: 15,
                         defaultFont: "System",
                         headerFont: "System"
                     }}
                     style={{ 
                         borderRadius: 13, 
                         width: width * 0.8, 
-                        height: height * 0.35,
+                        height: height * 0.34,
                     }}
                     isGregorian={true}
                     minimumDate={startDate}

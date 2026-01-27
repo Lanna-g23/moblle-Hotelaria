@@ -1,21 +1,18 @@
 import AuthContainer from "@/components/ui/AuthContainer";
-import { useRouter } from "expo-router";
-import { Alert, Text, TouchableOpacity, View } from "react-native";
+import { router } from "expo-router";
+import { Alert, Text, TouchableOpacity } from "react-native";
 import PassField from "../ui/PasswordField";
 import TextField from "../ui/TextFleld";
 import { Button } from "./Button";
 import { style } from "./style";
-import { global } from "../ui/styles";
 import React, { useMemo, useState } from 'react';
 
-
 function isValidEmail(email: string){
-    return /^[^\s@&='"!]@[^\s@&='"!].[^\s@&='"!]$/.test(email);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 const RenderLogin = () => {
 
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -40,7 +37,7 @@ const RenderLogin = () => {
         password: password
       });
       await new Promise((req) => setTimeout(req, 2000));
-      if (email === "pamellapereto@gmail.com" && password === "123") {
+      if (email === "a@a.a" && password === "123456") {
         Alert.alert("Login bem-sucedido!");
         router.replace("/(tabs)/explorer");
       }
@@ -69,7 +66,8 @@ const RenderLogin = () => {
                 icon={{lib: "MaterialIcons", name: "email"}}
                 placeholder="Digite seu E-mail"
                 value={email}
-                onChangeText={(input) => setEmail(input)}
+                onChangeText={setEmail}
+                onBlur={() => setTouched(prev => ({ ...prev, email: true }))}
                 errorText={errors.email}
                 keyboardType="email-address"
             />
@@ -79,14 +77,14 @@ const RenderLogin = () => {
                 icon={{lib: "MaterialIcons", name: "key"}}
                 placeholder="Digite sua senha"
                 value={password}
-                onChangeText={(input) => setPassword(input)}
+                onChangeText={setPassword}
+                onBlur={() => setTouched(pres => ({ ...pres, password: true}))}
                 errorText={errors.password}
-            >
-            </PassField>
+            />
 
             <Button 
-                title ="Login"
-                onPress={()=> router.push("/(tabs)/explorer")}
+                title ={loading ? "Carregando..." : "Login"}
+                onPress={handleSubmit}
                 disabled={!canSubmit}
             />
             
@@ -97,8 +95,6 @@ const RenderLogin = () => {
             <TouchableOpacity onPress={()=> router.push("/(auth)/register")}>
                 <Text style={style.changePassTxt}>Cadastre-se!</Text>
             </TouchableOpacity>
-
-            
         </AuthContainer>
     );
 };

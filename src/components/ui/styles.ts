@@ -4,7 +4,7 @@ const { width, height } = Dimensions.get("window");
 
 export const global =StyleSheet.create({
     textWhite:{
-        color: "#000000ff"
+        color: "rgb(0, 0, 0)"
     },
     
     //fundo
@@ -18,9 +18,9 @@ export const global =StyleSheet.create({
     },
 
     conteiner:{
-        paddingHorizontal: width * 0.04,
+        paddingHorizontal: width * 0.03,
         paddingTop: height * 0.02,
-        paddingBottom: height * 0.05,
+        paddingBottom: height * 0.03,
     },
 
     header: {
@@ -31,20 +31,20 @@ export const global =StyleSheet.create({
     content: {
         alignItems: "center",
         backgroundColor: "#c7dcffff",
-        borderRadius: 10,
+        borderRadius: 13,
         padding: width * 0.01, //mais consistente
 
         //Sombra Ios
-        shadowColor: "#000000ff",
+        shadowColor: "rgb(0, 0, 0)",
         shadowOpacity: 0.08,
         shadowRadius: 10,
         //mover a sombra para baixo da tela
         shadowOffset: { width: 0, height: 3 },
 
         //Sombra Android
-        elevation: 4,
+        elevation: 9,
 
-        paddingBottom: width * 0.07,
+        paddingBottom: width * 0.05,
         marginBottom: 20,
     },
 
@@ -57,11 +57,11 @@ export const global =StyleSheet.create({
 
     //Subtitulo a Baixo do titulo
     subtitle: {
-        fontSize: 19,
+        fontSize: 17,
         fontWeight: "400",
         color: "#0704b8ff",
-        marginTop: height * 0.01,
-        marginBottom: height * 0.01,
+        marginTop: height * 0.02,
+        marginBottom: height * 0.02,
     },
 
     inputBorder: {
@@ -78,7 +78,7 @@ export const global =StyleSheet.create({
         backgroundColor: "#7faefbff",
         paddingLeft: 9,
         paddingRight: width * 0.11,
-        maxWidth: width * 0.9,
+        maxWidth: width * 0.8,
         minWidth: width * 0.8
     },
 
@@ -88,27 +88,27 @@ export const global =StyleSheet.create({
 
     inpError:{
         elevation: 8,
-        shadowColor: "#000000ff",
+        shadowColor: "rgb(0, 0, 0)",
     },
 
     errotext:{
         color: "red",
-        fontSize: 13,
-        marginTop: height * 0.05
+        fontSize: 14,
+        marginTop: height * 0.02
     },
 
     eyeIcon: {
         position: "absolute",
-        right: 10,
-        top: 40
+        right: 11,
+        top: 46
     },
 
     modalView:{
-        margin: 20,
+        margin: 8,
         backgroundColor: "#91a5e5ff",
         borderRadius: 20,
         width: '90%',
-        padding: 35,
+        padding: 20,
         alignItems:"center",
         shadowColor:'#0000ffff',
         shadowOffset:{
@@ -124,7 +124,7 @@ export const global =StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 22,
+        marginTop: 20,
     },
 
     /*button: {
@@ -168,29 +168,29 @@ export const global =StyleSheet.create({
     },*/
 
     closeButton: {
-        backgroundColor: '#5785f9ff',
+        backgroundColor: 'rgb(97, 140, 249)',
         padding: 12,
         borderRadius: 20,
-        marginTop: 15,
-        alignItems: 'center',
+        marginTop: 11,
+        alignItems: "center",
     },
     
     closeButtonText: {
         color: '#ffffffff',
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 18,
+        fontWeight: "bold",
     },
 
     inputGroup: {
-        marginBottom: height * 0.05,
+        marginBottom: height * 0.03,
     },
 
     //as letras que o orienta(Ex: e-mail, senha)
     label2: {
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: "600",
         color: "#001d91ff",
-        marginBottom: height * 0.01
+        marginBottom: height * 0.02
     },
 
     iconContainer: {

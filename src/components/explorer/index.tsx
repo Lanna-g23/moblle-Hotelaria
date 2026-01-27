@@ -5,6 +5,8 @@ import DateSelector from '../ui/DataSelector';
 import RoomCard from '../ui/RoomCard';
 import TextField from '../ui/TextFleld';
 import { global } from '../ui/styles';
+import { Text } from '@react-navigation/elements';
+import InputSpin from '../ui/inputSpin';
 
 
 const RenderExplorer = () => {
@@ -13,7 +15,8 @@ const RenderExplorer = () => {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [showDatePicker, setShowDatePicker] = useState<"checkin" | "checkout" | null>(null);
-
+  const [qtdGuests, setQtdGuests] = useState(""); 
+  
   const formatDateForDisplay = (dateString: string): string => {
     if (!dateString) return "";
 
@@ -28,11 +31,12 @@ const RenderExplorer = () => {
       return dateString;
     }
   };
+
   return (
     <AuthContainer>
       <View style={global.content}>
-        <View style={{ flex:1,flexDirection:"row"}}>
-          <View style={{ marginBottom: 20, width: width * 0.5}}>
+        <View style={{ flex:1, flexDirection: "column"}}>
+          <View style={{ marginBottom: 18, width: width * 0.8, alignItems:"center"}}>
             <TouchableOpacity onPress={() => setShowDatePicker("checkin")}>
               <TextField 
                 label="Check-in" 
@@ -52,7 +56,7 @@ const RenderExplorer = () => {
             )}
           </View>
 
-          <View style={{ marginBottom: 18, width: width * 0.7, display: "flex", flexDirection: "column" }}>
+          <View style={{ marginBottom: 18, width: width * 0.8, alignItems:"center" }}>
             <TouchableOpacity onPress={() => setShowDatePicker("checkout")}>
               <TextField 
                 label="Check-out" 
@@ -71,11 +75,22 @@ const RenderExplorer = () => {
               />
             )}
           </View>
+
         </View>
-        <ScrollView horizontal style={{ marginBottom: 19 }} showsHorizontalScrollIndicator={false}>
+
+        <View style={{alignItems:"center"}}>
+          <Text style={global.label2}>Quantidade de Hospedes</Text>
+          <InputSpin
+            onSelectSpin={(guests)=>
+              setQtdGuests(guests)
+            }
+          />
+        </View>
+
+        <ScrollView horizontal style={{ marginBottom: 17 }} showsHorizontalScrollIndicator={false}>
           <RoomCard 
             label="Apartamento Luxo"
-            icon={{ lib: "FontAwesome5", name: "bed" }}
+            icon={{ lib: "MaterialIcons", name: "bed"}}
             description={{
               title: "Quarto Casal",
               text: "1 cama de casal king size\nAr condicionado\nTV 50\"",
@@ -84,7 +99,7 @@ const RenderExplorer = () => {
           />
           <RoomCard 
             label="Suíte Familiar"
-             icon={{ lib: "FontAwesome5", name: "user" }}            
+             icon={{ lib: "MaterialIcons", name: "family-restroom" }}            
              description={{
               title: "Quarto Familiar",
               text: "2 camas de casal\n2 camas de solteiro\nVaranda",
@@ -105,7 +120,7 @@ const RenderExplorer = () => {
           />
           <RoomCard 
             label="Apartamento Simples"
-             icon={{ lib: "MaterialIcons", name: "bedtime" }}
+            icon={{ lib: "FontAwesome6", name: "bed" }}
             description={{
               title: "Quarto Simples",
               text: "1 cama de casal\nBanheiro privativo\nWiFi gratuito",
@@ -118,4 +133,5 @@ const RenderExplorer = () => {
     </AuthContainer>
   );
 };
+
 export default RenderExplorer;
