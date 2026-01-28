@@ -14,7 +14,7 @@ export const global =StyleSheet.create({
     },
 
     keyboardAvoiding: {
-        flex: 1
+        flex: 1,
     },
 
     conteiner:{
@@ -31,7 +31,7 @@ export const global =StyleSheet.create({
     content: {
         alignItems: "center",
         backgroundColor: "#c7dcffff",
-        borderRadius: 13,
+        borderRadius: 14,
         padding: width * 0.01, //mais consistente
 
         //Sombra Ios
@@ -272,7 +272,7 @@ export const global =StyleSheet.create({
         color: '#000000ff',
         fontSize: 14,
         maxHeight: 40,
-    },*/
+    },
 
     descriptionContainer: {
         flexDirection: 'row',
@@ -281,7 +281,7 @@ export const global =StyleSheet.create({
         flex: 1,
         marginTop: 8,
     },
-
+*/
     //espaços do iconis
     /*inputIcon:{
         display: "flex",
@@ -317,7 +317,7 @@ export const global =StyleSheet.create({
     imageFixed: {
         borderRadius: 12,
         height: height * 0.17,
-        width: '99%',
+        width: '100%',
     },
     
 });

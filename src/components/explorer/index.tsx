@@ -15,7 +15,7 @@ const RenderExplorer = () => {
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [showDatePicker, setShowDatePicker] = useState<"checkin" | "checkout" | null>(null);
-  const [qtdGuests, setQtdGuests] = useState(""); 
+  const [qtdGuests, setQtdGuests] = useState<number>(1); 
   
   const formatDateForDisplay = (dateString: string): string => {
     if (!dateString) return "";
@@ -76,17 +76,19 @@ const RenderExplorer = () => {
             )}
           </View>
 
-        </View>
-
         <View style={{alignItems:"center"}}>
           <Text style={global.label2}>Quantidade de Hospedes</Text>
           <InputSpin
-            onSelectSpin={(guests)=>
-              setQtdGuests(guests)
-            }
-          />
+              onSelectSpin={(guests) => setQtdGuests(guests)}
+              guestss={qtdGuests}
+              minGuests={1} 
+              colorMax={"#8aaef1"} 
+              colorMin={"#8aaef1"} 
+              max={10} 
+              step={1} />
         </View>
 
+        </View>
         <ScrollView horizontal style={{ marginBottom: 17 }} showsHorizontalScrollIndicator={false}>
           <RoomCard 
             label="Apartamento Luxo"

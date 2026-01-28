@@ -12,7 +12,6 @@ function isValidEmail(email: string){
 }
 
 const RenderLogin = () => {
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,7 +37,6 @@ const RenderLogin = () => {
       });
       await new Promise((req) => setTimeout(req, 2000));
       if (email === "a@a.a" && password === "123456") {
-        Alert.alert("Login bem-sucedido!");
         router.replace("/(tabs)/explorer");
       }
       else {
@@ -59,8 +57,7 @@ const RenderLogin = () => {
             title="Bem-Vindo"
             subtitle="Faça seu login"
             icon="hotel"
-            >
-        
+        >
             <TextField
                 label="E-mail"
                 icon={{lib: "MaterialIcons", name: "email"}}
