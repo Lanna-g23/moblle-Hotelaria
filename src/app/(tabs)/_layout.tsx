@@ -1,22 +1,32 @@
-/* Função: definir o fluxo de navegação entre as telas disponíveis em tab Navigator:
-explore, reservas, perfil,
-*/
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Tabs } from 'expo-router';
+import React from "react";
 
-const TabLayout = () => {
-  return (
-        <Tabs screenOptions={{ tabBarActiveTintColor: '#2549fcff', headerShown: false, tabBarStyle: {justifyContent: 'center', alignItems: "center", height: 60}}} >
-            <Tabs.Screen  name="explorer"  options={{  title: 'explorer',  tabBarIcon: ({ color }) =>
-                <MaterialCommunityIcons size={28} name="map" color={color} />}}/>
+import { FontAwesome, MaterialCommunityIcons } from "@expo/vector-icons";
+import { Tabs } from "expo-router";
 
-            <Tabs.Screen name="reserve" options={{ title: 'reserve', tabBarIcon: ({ color }) => 
-                <MaterialCommunityIcons size={28} name="airplane" color={color} /> }}/>
 
-            <Tabs.Screen name="account" options={{ title: 'account', tabBarIcon: ({ color }) => 
-                <MaterialCommunityIcons size={28} name="account" color={color} /> }}/>
+const AuthLayout = () => {
+    return (
+        <Tabs
+        screenOptions={{ tabBarActiveTintColor: "#020766", tabBarInactiveTintColor: "#0d03ca",
+        headerShown: false, tabBarStyle: { backgroundColor: "rgb(0, 89, 255)" } }}>
 
-        </Tabs>
-  );
-}
-export default TabLayout;
+            <Tabs.Screen
+        name="explorer"
+        options={{ title: "Explorar", tabBarIcon: ({ color }) => 
+          (<FontAwesome size={26} name="search" color={color} />) }} />
+
+     <Tabs.Screen
+        name="reserve"
+        options={{ title: "Reservar", tabBarIcon: ({ color }) => 
+          (<MaterialCommunityIcons size={26} name="bag-suitcase" color={color} />) }} />
+
+     <Tabs.Screen
+        name="account"
+        options={{ title: "Minha conta", tabBarIcon: ({ color }) => 
+          (<MaterialCommunityIcons size={26} name="account" color={color} />) }} />
+
+    </Tabs>
+    );
+};
+
+export default AuthLayout;

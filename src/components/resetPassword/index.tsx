@@ -1,10 +1,11 @@
-import AuthContainer from "@/components/ui/AuthContainer";
+import AuthContainer from "../ui/AuthContainer";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { TouchableOpacity, View } from "react-native";
 import TextField from "../ui/TextFleld";
 import { Button } from "./Button";
-import { style } from "./style"
+import { style } from "./style";
+import React from "react";
 
 const RenderResetpass = () => {
     return(
@@ -15,17 +16,16 @@ const RenderResetpass = () => {
         >
             <View style={style.leftArrow}> 
                 <TouchableOpacity onPress={() => router.push("/(auth)")}> 
-                    <MaterialCommunityIcons name="arrow-left" size={25} color="#01115bff" />
+                    <MaterialCommunityIcons name="arrow-left" size={25} color="white" />
                 </TouchableOpacity>
             </View> 
             
 
             <TextField
                 label="Email"
-                icon={{lib: "MaterialIcons", name: "email"}}
+                icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="email@email.com"
-            >
-            </TextField>
+            />
 
             <Button
                 title="Confirmar"

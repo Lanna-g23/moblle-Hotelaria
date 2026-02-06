@@ -1,4 +1,5 @@
-import RenderLogin from "@/components/login";
+import RenderLogin from "../../components/login";
+import React from "react";
 
 /* Login */
 const Login = () => {
@@ -6,4 +7,5 @@ const Login = () => {
         <RenderLogin />
     );
 }
+
 export default Login;

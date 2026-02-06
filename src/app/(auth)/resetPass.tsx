@@ -1,9 +1,9 @@
-import RenderResetPassword from "@/components/resetPassword";
-
+import RenderResetpass from "../../components/resetPassword";
+import React from "react";
 
 const resetPass = () => {
     return (
-        <RenderResetPassword />
+        <RenderResetpass/>
     );
 }
 export default resetPass;

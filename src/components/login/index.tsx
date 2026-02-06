@@ -1,4 +1,4 @@
-import AuthContainer from "@/components/ui/AuthContainer";
+import AuthContainer from "../ui/AuthContainer";
 import { router } from "expo-router";
 import { Alert, Text, TouchableOpacity } from "react-native";
 import PassField from "../ui/PasswordField";
@@ -65,7 +65,7 @@ const RenderLogin = () => {
                 value={email}
                 onChangeText={setEmail}
                 onBlur={() => setTouched(prev => ({ ...prev, email: true }))}
-                errorText={errors.email}
+                errortext={errors.email}
                 keyboardType="email-address"
             />
 
@@ -76,7 +76,7 @@ const RenderLogin = () => {
                 value={password}
                 onChangeText={setPassword}
                 onBlur={() => setTouched(pres => ({ ...pres, password: true}))}
-                errorText={errors.password}
+                errortext={errors.password}
             />
 
             <Button 

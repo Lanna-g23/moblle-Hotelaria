@@ -1,28 +1,33 @@
-import { Dimensions } from "react-native";
+import React from "react";
 import InputSpinner from "react-native-input-spinner";
+import { Colors } from "./style";
 
 type Props={
-
-    guestss: number;
+    guests: number;
     onSelectSpin: (guests: number) => void;
     minGuests: number;
     colorMax: string;
     colorMin: string;
     max: number;
     step: number;
+    containerStyle?: any;
 };
 
-const InputSpin = ({guestss,onSelectSpin,minGuests,colorMax,colorMin,step,max}: Props) =>{
-    const {width, height} = Dimensions.get("window")
+const InputSpin = ({guests, onSelectSpin, minGuests, colorMax, colorMin, step, max, containerStyle}: Props) => {
     return(   
         <InputSpinner
-        value={guestss}
-        onChange={onSelectSpin}
-        max={max}
-        min={minGuests}
-        step={step}
-        colorMax={colorMax}
-        colorMin={colorMin}
+            value={guests}
+            onChange={onSelectSpin}
+            max={max}
+            min={minGuests}
+            step={step}
+            colorMax={colorMax || Colors.goldPrimary}
+            colorMin={colorMin || Colors.textSecondary}
+            color={Colors.darkTertiary}
+            colorPress={Colors.goldPrimary}
+            background={Colors.darkSecondary}
+            textColor={Colors.textPrimary}
+            style={containerStyle}
         />
     );
 }

@@ -1,60 +1,64 @@
-import { MaterialCommunityIcons, FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5, FontAwesome6, MaterialIcons } from "@expo/vector-icons";
+import React from "react";
 import { Text, TextInput, TextInputProps, View } from "react-native";
-import { global } from "./styles";
+import { Colors, global } from "./style";
 
-type NameIcon = 
-    | { lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
-    | { lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
-    | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap }
-    | { lib: "MaterialCommunityIcons"; name: keyof typeof MaterialCommunityIcons.glyphMap };
-
-   type Props = TextInputProps & {
+type NameIcon =
+  | { lib: "MaterialIcons"; name: keyof typeof MaterialIcons.glyphMap }
+  | { lib: "FontAwesome6"; name: keyof typeof FontAwesome6.glyphMap }
+  | { lib: "FontAwesome5"; name: keyof typeof FontAwesome5.glyphMap };
+  
+type Props = TextInputProps & {
     label: string;
-    errorText?: string;
-    icon?: NameIcon; 
-};
+    errortext?: string;
+    icon?: NameIcon;
+    value?: string;
+    onChangeText?: (text: string) => void;
+    style?: any;
+    containerStyle?: any;
+}
 
-const TextField = ({label, errorText, icon, style, ...restInputProps } : Props) => {
-    return (
-        <View style={global.inputGroup}>
+const TextField = ({label, errortext, icon, value, onChangeText, style, containerStyle, ...restInputProps}: Props) => {
+    const renderIcon = () => {
+        if (!icon) return null;
+        
+        switch (icon.lib) {
+            case 'MaterialIcons':
+                return <MaterialIcons name={icon.name} size={16} color={Colors.textDisabled} />;
+            case 'FontAwesome6':
+                return <FontAwesome6 name={icon.name} size={16} color={Colors.textDisabled} />;
+            case 'FontAwesome5':
+                return <FontAwesome5 name={icon.name} size={16} color={Colors.textDisabled} />;
+            default:
+                return null;
+        }
+    };
 
-            <Text style={global.label2}>{label}</Text>
-            
-            <View style={[global.inputBox, global.inputBorder, errorText ? global.inpError : null]}>
-                {!! icon && (
-                    <View>
-                        {icon.lib === "MaterialIcons" && (
-                        <MaterialIcons style={global.icon} name={icon.name} size={25} color="#0846ffff" />
-                    )}
-                        {icon.lib === "FontAwesome5" && (
-                        <FontAwesome5 style={global.icon} name={icon.name} size={23} color="#0846ffff" />
-                    )}
-                        {icon.lib === "FontAwesome6" && (
-                        <FontAwesome6 style={global.icon} name={icon.name} size={23} color="#0846ffff" />
-                    )}
+    return(
+        <View style={containerStyle}>
+            {label ? <Text style={global.label}>{label}</Text> : null}
+            <View style={[global.inputBox, global.inputBorder, errortext ? global.inpError : null, style]}>
+                {!!icon && (
+                    <View style={global.icon}>
+                        {renderIcon()}
                     </View>
                 )}
                 <TextInput
-                    keyboardAppearance="dark"
-                    placeholderTextColor="#86a3d1ff"
-                    style={[global.input, style]}
-                    /* const TextField = (props: Props) => {
-                        const label = props.label;
-                        const errorText = props.errorText;
-                        const style = props.style;
-                        const value = props.value;
-                        const onChangeText = props.onChangeText;
-                        const placeholder = props.placeholder;
-                        const autoCapitalize = props.autoCapitalize;
-                        const keyboardType = props.keyboardType;
-                    } */
+                    onChangeText={onChangeText}
+                    value={value}
+                    style={{ 
+                        flex: 1, 
+                        fontSize: 15, 
+                        color: Colors.inputText,
+                        padding: 0,
+                        margin: 0
+                    }}
+                    placeholderTextColor={Colors.textDisabled}
                     {...restInputProps}
                 />
             </View>
-            {!! errorText && 
-                <Text style={global.errotext}>{errorText}</Text>
-            }
+            {!!errortext && <Text style={global.errotext}>{errortext}</Text>}
         </View>
     )
-};
+}
 export default TextField;

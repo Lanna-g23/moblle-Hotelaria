@@ -1,323 +1,143 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Colors, responsiveFont, responsiveHeight, responsiveWidth } from '@/components/ui/style';
+import { StyleSheet } from 'react-native';
 
-const { width, height } = Dimensions.get("window");
+export const styles = StyleSheet.create({
+  card: {
+    flexDirection: 'row',
+    backgroundColor: Colors.darkSecondary,
+    borderRadius: responsiveWidth(4),
+    padding: responsiveWidth(3.5),
+    marginBottom: responsiveHeight(2),
+    borderWidth: 1,
+    borderColor: 'rgba(212, 175, 55, 0.15)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
 
-export const global =StyleSheet.create({
-    textWhite:{
-        color: "rgb(0, 0, 0)"
-    },
-    
-    //fundo
-    safeArea: {
-        flex: 1,
-        backgroundColor: "#b4c9faff"
-    },
+  imageContainer: {
+    marginRight: responsiveWidth(3.5),
+  },
 
-    keyboardAvoiding: {
-        flex: 1,
-    },
+  imagePlaceholder: {
+    width: responsiveWidth(22),
+    height: responsiveWidth(22),
+    borderRadius: responsiveWidth(3),
+    backgroundColor: Colors.darkTertiary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(212, 175, 55, 0.2)',
+  },
 
-    conteiner:{
-        paddingHorizontal: width * 0.03,
-        paddingTop: height * 0.02,
-        paddingBottom: height * 0.03,
-    },
+  imageText: {
+    fontSize: responsiveFont(24),
+  },
 
-    header: {
-        alignItems: "center",
-        marginBottom: height * 0.03,
-    },
+  contentContainer: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
 
-    content: {
-        alignItems: "center",
-        backgroundColor: "#c7dcffff",
-        borderRadius: 14,
-        padding: width * 0.01, //mais consistente
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: responsiveHeight(0.8),
+  },
 
-        //Sombra Ios
-        shadowColor: "rgb(0, 0, 0)",
-        shadowOpacity: 0.08,
-        shadowRadius: 10,
-        //mover a sombra para baixo da tela
-        shadowOffset: { width: 0, height: 3 },
+  roomName: {
+    fontSize: responsiveFont(15),
+    fontWeight: '600',
+    color: Colors.goldPrimary,
+    letterSpacing: 0.3,
+    flex: 1,
+    marginRight: responsiveWidth(2),
+  },
 
-        //Sombra Android
-        elevation: 9,
+  statusBadge: {
+    backgroundColor: 'rgba(39, 174, 96, 0.15)',
+    paddingHorizontal: responsiveWidth(2.5),
+    paddingVertical: responsiveHeight(0.3),
+    borderRadius: responsiveWidth(2),
+    borderWidth: 1,
+    borderColor: 'rgba(39, 174, 96, 0.3)',
+  },
 
-        paddingBottom: width * 0.05,
-        marginBottom: 20,
-    },
+  status: {
+    fontSize: responsiveFont(9),
+    color: Colors.success,
+    fontWeight: '600',
+    letterSpacing: 0.5,
+  },
 
-    title: {
-        fontSize: 25,
-        fontWeight: "800",
-        color: "#050184ff"
-        /*Para atribuir cor: color:*/
-    },
+  roomSubtitle: {
+    fontSize: responsiveFont(11),
+    color: Colors.textSecondary,
+    marginBottom: responsiveHeight(1.2),
+    letterSpacing: 0.2,
+  },
 
-    //Subtitulo a Baixo do titulo
-    subtitle: {
-        fontSize: 17,
-        fontWeight: "400",
-        color: "#0704b8ff",
-        marginTop: height * 0.02,
-        marginBottom: height * 0.02,
-    },
+  detailsRow: {
+    flexDirection: 'row',
+    marginBottom: responsiveHeight(1.5),
+  },
 
-    inputBorder: {
-        elevation: 9,
-        shadowColor: "#0000ffff",
-        shadowOpacity: 6,
-    },
+  detailItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginRight: responsiveWidth(4),
+  },
 
-    inputBox: {
-        alignItems: "center",
-        display: "flex",
-        flexDirection: "row",
-        borderRadius: 10,
-        backgroundColor: "#7faefbff",
-        paddingLeft: 9,
-        paddingRight: width * 0.11,
-        maxWidth: width * 0.8,
-        minWidth: width * 0.8
-    },
+  detailIcon: {
+    fontSize: responsiveFont(11),
+    marginRight: responsiveWidth(1.5),
+    opacity: 0.8,
+  },
 
-    icon: {
-        marginRight: 10,
-    },
+  detailText: {
+    fontSize: responsiveFont(10),
+    color: Colors.textSecondary,
+    letterSpacing: 0.2,
+  },
 
-    inpError:{
-        elevation: 8,
-        shadowColor: "rgb(0, 0, 0)",
-    },
+  footerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: responsiveHeight(1),
+    borderTopWidth: 0.5,
+    borderTopColor: 'rgba(255, 255, 255, 0.05)',
+  },
 
-    errotext:{
-        color: "red",
-        fontSize: 14,
-        marginTop: height * 0.02
-    },
+  roomFeatures: {
+    flexDirection: 'row',
+  },
 
-    eyeIcon: {
-        position: "absolute",
-        right: 11,
-        top: 46
-    },
+  feature: {
+    fontSize: responsiveFont(12),
+    marginRight: responsiveWidth(2),
+    opacity: 0.7,
+  },
 
-    modalView:{
-        margin: 8,
-        backgroundColor: "#91a5e5ff",
-        borderRadius: 20,
-        width: '90%',
-        padding: 20,
-        alignItems:"center",
-        shadowColor:'#0000ffff',
-        shadowOffset:{
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 8,
-        elevation: 5
-    },
+  priceContainer: {
+    alignItems: 'flex-end',
+  },
 
-    centerView:{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 20,
-    },
+  priceLabel: {
+    fontSize: responsiveFont(9),
+    color: Colors.textSecondary,
+    marginBottom: responsiveHeight(0.3),
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+  },
 
-    /*button: {
-        backgroundColor: '#000477ff',
-        padding: 10,
-        borderRadius: 5,
-        height: height * 0.08
-    },
-
-    buttonText: {
-        color: '#a6bbf5ff',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginBottom: 4,
-    },
-
-    dateText: {
-        color: '#ced4f5ff',
-        fontSize: 14,
-    },
-
-    modelOverlay: {
-        flex: 1,
-        backgroundColor: 'rgba(143, 155, 219, 1)',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-
-    modalContent: {
-        backgroundColor: '#9dc6eeff',
-        borderRadius: 20,
-        padding: 20,
-        margin: 20,
-        borderWidth: 1,
-        borderColor: '#9bc3f4ff',
-    },
-
-    iosPicker: {
-        backgroundColor: '#9cb3f6ff',
-        borderRadius: 15,
-    },*/
-
-    closeButton: {
-        backgroundColor: 'rgb(97, 140, 249)',
-        padding: 12,
-        borderRadius: 20,
-        marginTop: 11,
-        alignItems: "center",
-    },
-    
-    closeButtonText: {
-        color: '#ffffffff',
-        fontSize: 18,
-        fontWeight: "bold",
-    },
-
-    inputGroup: {
-        marginBottom: height * 0.03,
-    },
-
-    //as letras que o orienta(Ex: e-mail, senha)
-    label2: {
-        fontSize: 16,
-        fontWeight: "600",
-        color: "#001d91ff",
-        marginBottom: height * 0.02
-    },
-
-    iconContainer: {
-        marginBottom: 5,
-    },
-
-    titleCard: {
-        fontSize: 17,
-        fontWeight: '600',
-        marginBottom: 9,
-        color: '#0029f4ff',
-    },
-
-    priceContainer: {
-        marginLeft: 10,
-    },
-
-    price: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#0f7a0fff',
-    },
-
-    touchableFixed: {
-        borderRadius: 20,
-        padding: width * 0.04,
-        height: '100%',
-    },
-
-    cardContentFixed: {
-        padding: width * 0.03,
-        height: height * 0.18,
-        justifyContent: 'space-between',
-    },
-
-    textFixed: {
-        color: '#0107a3ff',
-        fontSize: 15,
-        maxHeight: 40,
-    },
-
-    descriptionContainerFixed: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flex: 1,
-        marginTop: 8,
-    },
-
-    cardContainer: {
-        width: width * 0.9,
-        height: height * 0.4,
-        maxWidth: 340,
-        margin: 10,
-        borderRadius: 20,
-        backgroundColor: '#99b4fdff',
-    },
-
-
-    /*touchable: {
-        borderRadius: 20,
-        padding: width * 0.03,
-        height: '100%',
-    },
-
-    image: {
-        borderRadius: 10,
-        height: height * 0.20,
-        width: '100%',
-    },
-
-    cardContent: {
-        padding: width * 0.04,
-        height: height * 0.20,
-        justifyContent: 'space-between',
-    },
-
-    text2: {
-        color: '#000000ff',
-        fontSize: 14,
-        maxHeight: 40,
-    },
-
-    descriptionContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flex: 1,
-        marginTop: 8,
-    },
-*/
-    //espaços do iconis
-    /*inputIcon:{
-        display: "flex",
-        backgroundColor: "#a9b9f7ff",
-        paddingLeft: width * 0.02,
-        flexDirection: "row",
-        alignItems: "center",
-        borderWidth: 2,
-        borderColor: "#d1d6f8ff",
-        borderRadius: 10,
-        maxWidth: width * 0.7,
-        minWidth: width * 0.7
-    },*/
-
-
-    //Espaço do texto
-    input: {
-        backgroundColor: "#dae4f6ff",
-        flex: 1,
-        fontSize: 17,
-        color: "#001affff",
-        fontWeight: "600",
-        paddingHorizontal: width * 0.02
-    },
-
-    inerrorText: {
-        color: "#ff0000ff",
-        fontWeight: "600",
-        fontSize: 15,
-        marginTop: height * 0.01
-    },
-
-    imageFixed: {
-        borderRadius: 12,
-        height: height * 0.17,
-        width: '100%',
-    },
-    
+  price: {
+    fontSize: responsiveFont(17),
+    fontWeight: '600',
+    color: Colors.goldPrimary,
+    letterSpacing: 0.3,
+  },
 });

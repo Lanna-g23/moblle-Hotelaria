@@ -1,9 +1,9 @@
-import RenderRegister from "@/components/register";
-
+import RenderRegister from "../../components/register";
+import React from "react";
 
 const register = () => {
     return (
-        <RenderRegister />
+        <RenderRegister/>
     );
 }
 export default register;
