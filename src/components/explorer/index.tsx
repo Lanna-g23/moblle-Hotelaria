@@ -154,7 +154,7 @@ const handleDateSelect = (date: string) => {
                 />
               </View>
               
-              <View style={global.roomCardContainer}>
+              {/*<View style={global.roomCardContainer}>
                 <RoomCard 
                   label="Suíte Familiar"
                   icon={{ lib: "FontAwesome5", name: "user-friends" }}            
@@ -165,7 +165,7 @@ const handleDateSelect = (date: string) => {
                   }}
                   containerStyle={{backgroundColor: Colors.darkSecondary, borderColor: Colors.goldPrimary}}
                 />
-              </View>
+              </View>*/}
             </ScrollView>
           </View>
 
@@ -193,7 +193,7 @@ const handleDateSelect = (date: string) => {
                 />
               </View>
               
-              <View style={global.roomCardContainer}>
+              {/*<View style={global.roomCardContainer}>
                 <RoomCard 
                   label="Apartamento Simples"
                   icon={{ lib: "FontAwesome5", name: "home" }}
@@ -204,7 +204,7 @@ const handleDateSelect = (date: string) => {
                   }}
                   containerStyle={{backgroundColor: Colors.darkSecondary, borderColor: Colors.goldPrimary}}
                 />
-              </View>
+              </View>*/}
             </ScrollView>
           </View>
 

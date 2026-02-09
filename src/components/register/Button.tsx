@@ -15,15 +15,15 @@ interface CustomButtonProps {
 export const Button: React.FC<CustomButtonProps> = ({
   title,
   onPress,
-  backgroundColor = '#000b62ff',
-  textColor = '#cbdaffff',
+  backgroundColor = '#000c6a',
+  textColor = '#a7bffa',
   disabled = false,
   fullWidth = false,
 }) => {
   return (
     <TouchableOpacity
       style={[
-        style.button3,
+        style.button,
         { backgroundColor },
         fullWidth && style.fullWidth,
         disabled && style.disabled

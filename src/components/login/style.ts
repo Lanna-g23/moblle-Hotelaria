@@ -3,15 +3,15 @@ import { StyleSheet } from 'react-native';
 export const style = StyleSheet.create({
 
   button2: {
-    marginTop: 20,
-    paddingVertical: 13,
-    paddingHorizontal: 54,
+    marginTop: 22,
+    paddingVertical: 12,
+    paddingHorizontal: 52,
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 44,
     elevation: 19,
-    shadowColor: '#021dcdff',
+    shadowColor: 'rgb(0, 0, 0)',
     shadowOpacity: 0.6,
     shadowRadius: 10,
   },
@@ -30,10 +30,11 @@ export const style = StyleSheet.create({
   },
 
   changePassTxt:{
-    color: "#0015b4ff",
+    color: "#0017c7",
     textDecorationLine: "underline",
-    marginTop: 26,
+    marginTop: 25,
   },
 
 }
+
 );

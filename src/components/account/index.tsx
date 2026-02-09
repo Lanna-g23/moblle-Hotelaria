@@ -1,21 +1,16 @@
-import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+import { FontAwesome5, FontAwesome6, MaterialCommunityIcons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import {
-  Dimensions,
-  Modal,
-  ScrollView,
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+  Dimensions, Modal,
+  ScrollView, Text,
+  TextInput, TouchableOpacity, View, } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import AuthContainer from '../ui/AuthContainer';
 import TextField from '../ui/TextFleld';
 import { Colors, styles } from './styles';
 
 const { width } = Dimensions.get('window');
-const responsiveFont = (size: number) => size * (width / 375);
+const responsiveFont = (size: number) => size * (width / 368);
 const iconSize = responsiveFont(18);
 
 const RenderAccount = () => {
@@ -68,11 +63,11 @@ const RenderAccount = () => {
       </Text>
 
       {variant === 'secondary' && (
-        <FontAwesome5
+        <FontAwesome6
           name="crown"
-          size={responsiveFont(14)}
+          size={responsiveFont(13)}
           color={Colors.goldPrimary}
-          style={{ marginLeft: responsiveFont(4), opacity: 0.7 }}
+          style={{ marginLeft: responsiveFont(4), opacity: 0.6 }}
         />
       )}
     </TouchableOpacity>
@@ -211,7 +206,7 @@ const RenderAccount = () => {
             <View style={styles.modalHeader}>
               <MaterialCommunityIcons
                 name="shield-lock-outline"
-                size={responsiveFont(32)}
+                size={responsiveFont(34)}
                 color={Colors.goldPrimary}
               />
               <Text style={styles.modalTitle}>Alterar Senha</Text>

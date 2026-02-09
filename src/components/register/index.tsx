@@ -31,7 +31,7 @@ const RenderRegister = () => {
             >
             <View style={style.leftArrow}> 
                 <TouchableOpacity onPress={() => router.push("/(auth)")}> 
-                    <MaterialCommunityIcons name="arrow-left" size={25} color="#000000ff" />
+                    <MaterialCommunityIcons name="arrow-left" size={25} color="#9bc9f7" />
                 </TouchableOpacity>
             </View> 
     

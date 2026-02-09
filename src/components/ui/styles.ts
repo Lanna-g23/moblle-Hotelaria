@@ -5,12 +5,12 @@ export const styles = StyleSheet.create({
   card: {
     flexDirection: 'row',
     backgroundColor: Colors.darkSecondary,
-    borderRadius: responsiveWidth(4),
+    borderRadius: responsiveWidth(5),
     padding: responsiveWidth(3.5),
     marginBottom: responsiveHeight(2),
     borderWidth: 1,
-    borderColor: 'rgba(212, 175, 55, 0.15)',
-    shadowColor: '#000',
+    borderColor: '#0d00c926',
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(212, 175, 55, 0.2)',
+    borderColor: '#151ce433',
   },
 
   imageText: {
@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
   },
 
   roomName: {
-    fontSize: responsiveFont(15),
+    fontSize: responsiveFont(16),
     fontWeight: '600',
     color: Colors.goldPrimary,
     letterSpacing: 0.3,

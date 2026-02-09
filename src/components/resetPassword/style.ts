@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 44,
     elevation: 10,
-    shadowColor: '#000000ff',
+    shadowColor: 'rgb(0, 0, 0)',
     shadowOpacity: 0.5,
     shadowRadius: 5,
   },
@@ -37,8 +37,8 @@ export const style = StyleSheet.create({
 
   leftArrow: {
     position: 'absolute',
-    top: height * -0.18,
-    left: width * 0.001,
+    top: height * -0.16,
+    left: width * 0.04,
     zIndex: 10,
   },
 

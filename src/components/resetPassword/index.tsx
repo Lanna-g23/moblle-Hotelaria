@@ -16,7 +16,7 @@ const RenderResetpass = () => {
         >
             <View style={style.leftArrow}> 
                 <TouchableOpacity onPress={() => router.push("/(auth)")}> 
-                    <MaterialCommunityIcons name="arrow-left" size={25} color="white" />
+                    <MaterialCommunityIcons name="arrow-left" size={26} color="#0048e3" />
                 </TouchableOpacity>
             </View> 
             
