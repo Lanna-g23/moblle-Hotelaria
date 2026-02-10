@@ -10,7 +10,9 @@ type AuthContextProps = {
  const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
  const AuthProvider = ({children}: {children: React.ReactNode}) => {
+    return <AuthContext.Provider value={value}>{children}
 
+    </AuthContext.Provider>
  };
 
  export default AuthProvider;

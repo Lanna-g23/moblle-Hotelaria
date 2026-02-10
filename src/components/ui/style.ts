@@ -1,46 +1,45 @@
-
 import { Dimensions, StyleSheet } from 'react-native';
 const {width, height} = Dimensions.get("window");
 
 const responsiveWidth = (percent: number) => {
   const width = Dimensions.get('window').width;
-  return width * (percent / 102);
+  return width * (percent / 100);
 };
 
 const responsiveHeight = (percent: number) => {
   const height = Dimensions.get('window').height;
-  return height * (percent / 105);
+  return height * (percent / 100);
 };
 
 const responsiveFont = (size: number) => {
   const width = Dimensions.get('window').width;
-  return size * (width / 370);
+  return size * (width / 375);
 };
 
 export { responsiveFont, responsiveHeight, responsiveWidth };
 
 export const Colors = {
-  darkPrimary: '#01004f',
-  darkSecondary: '#0b003b',
-  darkTertiary: '#2600cf',
-  goldPrimary: '#006eff',
-  goldSecondary: '#088cff',
-  goldAccent: '#0b19b8',
-  inputBackground: '#b2d7f8',
-  inputText: '#000000',
-  inputBorder: '#b2d7f8',
-  grayLight: '#ffffff',
-  grayMedium: '#b2d7f8',
-  grayDark: '#afc5f7',
+  darkPrimary: '#121212',
+  darkSecondary: '#1a1a1a',
+  darkTertiary: '#2d2d2d',
+  goldPrimary: '#D4AF37',
+  goldSecondary: '#FFD700',
+  goldAccent: '#B8860B',
+  inputBackground: '#ffffff',
+  inputText: '#121212',
+  inputBorder: '#e0e0e0',
+  grayLight: '#f5f5f5',
+  grayMedium: '#e0e0e0',
+  grayDark: '#b0b0b0',
   textPrimary: '#ffffff',
   textSecondary: '#cccccc',
-  textDisabled: '#0004da',
+  textDisabled: '#888888',
   success: '#27ae60',
-  error: '#f26353',
-  warning: '#a50000',
-  overlay: 'rgba(21, 21, 21, 0.7)',
-  goldOverlay: 'rgba(0, 0, 0, 0.1)',
-  cardBackground: '#000000',
+  error: '#e74c3c',
+  warning: '#f39c12',
+  overlay: 'rgba(0, 0, 0, 0.7)',
+  goldOverlay: 'rgba(212, 175, 55, 0.1)',
+  cardBackground: '#1a1a1a',
 };
 
 export const global = StyleSheet.create({
@@ -51,7 +50,7 @@ export const global = StyleSheet.create({
 
   dateSelectorContainer: {
   width: '100%',
-  maxWidth: responsiveWidth(97),
+  maxWidth: responsiveWidth(95),
   backgroundColor: Colors.darkSecondary,
   borderRadius: responsiveWidth(4),
   padding: responsiveWidth(4),
@@ -122,7 +121,7 @@ dateSelectorCancelText: {
 
 dateSelectorConfirmText: {
   color: Colors.darkPrimary,
-  fontSize: responsiveFont(13),
+  fontSize: responsiveFont(14),
   fontWeight: '700',
 },
 
@@ -211,33 +210,28 @@ datePickerDisabledDayText: {
   KeyboardAvoiding: {
     flex: 1,
   },
-  
   container: {
     flex: 1,
     backgroundColor: Colors.darkPrimary,
   },
-
   header: {
     alignItems: "center",
-    marginBottom: responsiveHeight(3),
+    marginBottom: responsiveHeight(4),
     paddingTop: responsiveHeight(3),
   },
-
   content: {
     flex: 1,
     backgroundColor: Colors.darkPrimary,
     paddingHorizontal: responsiveWidth(5),
-    paddingTop: responsiveHeight(3),
+    paddingTop: responsiveHeight(2),
   },
-
   title: {
     fontSize: responsiveFont(32),
-    fontWeight: "400",
+    fontWeight: "300",
     color: Colors.goldPrimary,
-    marginTop: responsiveHeight(3),
-    letterSpacing: 3,
+    marginTop: responsiveHeight(2),
+    letterSpacing: 1,
   },
-
   subTitle: {
     fontSize: responsiveFont(18),
     fontWeight: "400",
@@ -245,21 +239,17 @@ datePickerDisabledDayText: {
     marginTop: responsiveHeight(1),
     textAlign: "center",
   },
-
   textWhite: {
     color: Colors.textPrimary,
   },
-
   textGold: {
     color: Colors.goldPrimary,
   },
-
   inputBorder: {
     borderWidth: 1,
     borderColor: Colors.inputBorder,
     borderRadius: responsiveWidth(2.5),
   },
-
   inputBox: {
     flexDirection: "row",
     alignItems: "center",
@@ -267,30 +257,26 @@ datePickerDisabledDayText: {
     backgroundColor: Colors.inputBackground,
     paddingHorizontal: responsiveWidth(4),
     paddingVertical: responsiveHeight(1.8),
-    minHeight: responsiveHeight(7),
+    minHeight: responsiveHeight(6),
     width: '100%',
   },
-
   icon: {
-    marginRight: responsiveWidth(4),
+    marginRight: responsiveWidth(3),
     color: Colors.textDisabled,
   },
-
   inpError: {
     borderColor: Colors.error,
     borderWidth: 1.5,
   },
-
   errotext: {
     color: Colors.error,
     fontSize: responsiveFont(12),
     marginTop: responsiveHeight(0.5),
   },
-
   eyeIcon: {
     position: "absolute",
     right: responsiveWidth(4),
-    top: responsiveHeight(4.3),
+    top: responsiveHeight(3.5),
   },
   modalView: {
     backgroundColor: Colors.darkSecondary,
@@ -344,12 +330,10 @@ modalContent: {
   width: '100%',
   maxWidth: responsiveWidth(90),
 },
-
   iosPicker: {
     backgroundColor: Colors.darkTertiary,
     borderRadius: responsiveWidth(3),
   },
-
   closeButton: {
     backgroundColor: Colors.darkTertiary,
     paddingVertical: responsiveHeight(1.5),
@@ -359,13 +343,11 @@ modalContent: {
     borderWidth: 1,
     borderColor: Colors.goldPrimary,
   },
-
   closeButtonText: {
     color: Colors.goldPrimary,
     fontSize: responsiveFont(14),
     fontWeight: "600",
   },
-
   label: {
     fontSize: responsiveFont(11),
     fontWeight: '600',
@@ -373,11 +355,9 @@ modalContent: {
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
-
   iconContainer: {
     marginLeft: responsiveWidth(2),
   },
-
   titleCard: {
     fontSize: responsiveFont(14),
     fontWeight: '600',
@@ -385,26 +365,15 @@ modalContent: {
     color: Colors.goldPrimary,
     letterSpacing: 0.5,
   },
-
   priceContainer: {
     marginLeft: responsiveWidth(2),
     alignItems: 'flex-end',
     justifyContent: 'center',
   },
-
   price: {
     fontSize: responsiveFont(16),
     fontWeight: 'bold',
     color: Colors.goldPrimary,
-  },
-
-  touchableFixed: {
-    borderRadius: responsiveWidth(4),
-    padding: responsiveWidth(2.5),
-    height: '100%',
-    backgroundColor: Colors.cardBackground,
-    borderWidth: 1.5,
-    borderColor: Colors.goldPrimary,
   },
 
   imageFixed: {
@@ -413,30 +382,20 @@ modalContent: {
     width: '100%',
     marginBottom: responsiveHeight(1),
   },
-
   cardContentFixed: {
     flex: 1,
     justifyContent: 'space-between',
   },
-
   textFixed: {
     color: Colors.textSecondary,
     fontSize: responsiveFont(10),
     lineHeight: responsiveFont(13),
   },
-
   descriptionContainerFixed: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     flex: 1,
-  },
-
-  cardContainer: {
-    width: responsiveWidth(75),
-    height: responsiveHeight(32),
-    margin: responsiveWidth(2),
-    borderRadius: responsiveWidth(4),
   },
 
   fieldContainer: {
@@ -449,12 +408,10 @@ modalContent: {
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
-
   fieldContainerGold: {
     borderColor: Colors.goldPrimary,
     borderWidth: 1.5,
   },
-
   fieldLabel: {
     fontSize: responsiveFont(12),
     fontWeight: '600',
@@ -463,14 +420,12 @@ modalContent: {
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
-
   fieldSubtitle: {
     fontSize: responsiveFont(12),
     color: Colors.textSecondary,
     marginTop: responsiveHeight(0.8),
     fontStyle: 'italic',
   },
-
   sectionTitle: {
     fontSize: responsiveFont(16),
     fontWeight: '600',
@@ -480,7 +435,6 @@ modalContent: {
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
-
   goldDivider: {
     height: 1.5,
     backgroundColor: Colors.goldPrimary,
@@ -489,7 +443,6 @@ modalContent: {
     marginVertical: responsiveHeight(2.5),
     opacity: 0.5,
   },
-
   goldGradient: {
     position: 'absolute',
     top: 0,
@@ -499,7 +452,6 @@ modalContent: {
     backgroundColor: Colors.goldPrimary,
     opacity: 0.3,
   },
-
   guestsContainer: {
     alignItems: 'center',
     marginBottom: responsiveHeight(3),
@@ -511,34 +463,28 @@ modalContent: {
     borderWidth: 1,
     borderColor: Colors.inputBorder,
   },
-
   scrollViewContainer: {
     paddingHorizontal: responsiveWidth(3),
   },
-
   roomCardContainer: {
     width: responsiveWidth(75),
     marginRight: responsiveWidth(3),
   },
-
   dateInputContainer: {
     marginBottom: responsiveHeight(2),
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
-
   inputSpinContainer: {
     width: responsiveWidth(50),
   },
-
   sectionContainer: {
     marginBottom: responsiveHeight(3),
   },
-
   goldDot: {
     width: responsiveWidth(1.8),
     height: responsiveWidth(1.8),
-    borderRadius: responsiveWidth(0.7),
+    borderRadius: responsiveWidth(0.9),
     backgroundColor: Colors.goldPrimary,
   },
 
@@ -550,8 +496,8 @@ modalContent: {
     padding: responsiveWidth(3.5),
     marginBottom: responsiveHeight(2),
     borderWidth: 1,
-    borderColor: '#000ac71a',
-    shadowColor: '#000000',
+    borderColor: 'rgba(212, 175, 55, 0.15)',
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -570,7 +516,7 @@ modalContent: {
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#000ac71a',
+    borderColor: 'rgba(212, 175, 55, 0.2)',
   },
 
   reserveImageText: {
@@ -650,7 +596,7 @@ modalContent: {
     alignItems: 'center',
     paddingTop: responsiveHeight(1),
     borderTopWidth: 0.5,
-    borderTopColor: '#000ac71a',
+    borderTopColor: 'rgba(255, 255, 255, 0.05)',
   },
 
   reserveRoomFeatures: {
@@ -690,7 +636,7 @@ modalContent: {
     paddingHorizontal: responsiveWidth(5),
     paddingVertical: responsiveHeight(2),
     borderBottomWidth: 1,
-    borderBottomColor: '#000ac71a',
+    borderBottomColor: 'rgba(212, 175, 55, 0.1)',
   },
 
   reserveBackButton: {
@@ -753,7 +699,7 @@ modalContent: {
     paddingHorizontal: responsiveWidth(5),
     paddingVertical: responsiveHeight(2),
     borderTopWidth: 1,
-    borderTopColor: '#0011ff1a',
+    borderTopColor: 'rgba(212, 175, 55, 0.1)',
   },
 
   reserveActionButton: {
@@ -783,7 +729,7 @@ modalContent: {
     paddingHorizontal: responsiveWidth(5),
     paddingVertical: responsiveHeight(2),
     borderBottomWidth: 1,
-    borderBottomColor: '#0000ff69',
+    borderBottomColor: 'rgba(212, 175, 55, 0.1)',
   },
 
   reservePageBackButton: {
@@ -846,7 +792,7 @@ modalContent: {
     paddingHorizontal: responsiveWidth(5),
     paddingVertical: responsiveHeight(2),
     borderTopWidth: 1,
-    borderTopColor: 'rgba(8, 0, 83, 0.1)',
+    borderTopColor: 'rgba(212, 175, 55, 0.1)',
   },
 
   reservePageActionButton: {
@@ -868,4 +814,184 @@ modalContent: {
     letterSpacing: 0.5,
     marginRight: responsiveWidth(2),
   },
+
+  roomCardReserveButtonText: {
+    color: Colors.darkPrimary,
+    fontSize: responsiveFont(14),
+    fontWeight: '700',
+    letterSpacing: 0.5,
+  },
+
+  // Estilos para o BottomSheet de reserva
+  bottomSheetReserveContent: {
+    padding: responsiveWidth(5),
+    flex: 1,
+  },
+
+  bottomSheetReserveTitle: {
+    fontSize: responsiveFont(24),
+    fontWeight: '700',
+    color: Colors.goldPrimary,
+    marginBottom: responsiveHeight(3),
+    textAlign: 'center',
+    letterSpacing: 0.5,
+  },
+
+  bottomSheetReserveCard: {
+    backgroundColor: Colors.darkSecondary,
+    borderRadius: responsiveWidth(4),
+    padding: responsiveWidth(4),
+    marginBottom: responsiveHeight(3),
+    borderWidth: 1,
+    borderColor: 'rgba(212, 175, 55, 0.15)',
+  },
+
+  bottomSheetReserveCardHeader: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(212, 175, 55, 0.1)',
+    paddingBottom: responsiveHeight(1.5),
+    marginBottom: responsiveHeight(2),
+  },
+
+  bottomSheetReserveRoomLabel: {
+    fontSize: responsiveFont(16),
+    fontWeight: '600',
+    color: Colors.goldPrimary,
+    letterSpacing: 0.3,
+  },
+
+  bottomSheetReserveCardBody: {
+    paddingVertical: responsiveHeight(0.5),
+  },
+
+  bottomSheetReserveRoomTitle: {
+    fontSize: responsiveFont(14),
+    fontWeight: '500',
+    color: Colors.textPrimary,
+    marginBottom: responsiveHeight(1),
+    letterSpacing: 0.2,
+  },
+
+  bottomSheetReserveRoomDescription: {
+    fontSize: responsiveFont(12),
+    color: Colors.textSecondary,
+    marginBottom: responsiveHeight(2),
+    lineHeight: responsiveFont(16),
+    letterSpacing: 0.1,
+  },
+
+  bottomSheetReservePriceContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: responsiveHeight(1.5),
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(212, 175, 55, 0.1)',
+  },
+
+  bottomSheetReservePriceLabel: {
+    fontSize: responsiveFont(12),
+    color: Colors.textSecondary,
+    fontWeight: '500',
+  },
+
+  bottomSheetReservePrice: {
+    fontSize: responsiveFont(20),
+    fontWeight: '700',
+    color: Colors.goldPrimary,
+  },
+
+  bottomSheetReserveDivider: {
+    height: 1,
+    backgroundColor: 'rgba(212, 175, 55, 0.1)',
+    marginVertical: responsiveHeight(2),
+  },
+
+  bottomSheetReserveActions: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: responsiveHeight(2),
+  },
+
+  bottomSheetReserveCancelButton: {
+    flex: 1,
+    marginRight: responsiveWidth(2),
+    backgroundColor: Colors.darkTertiary,
+    paddingVertical: responsiveHeight(2),
+    borderRadius: responsiveWidth(2.5),
+    borderWidth: 1,
+    borderColor: Colors.textSecondary,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  bottomSheetReserveCancelButtonText: {
+    color: Colors.textSecondary,
+    fontSize: responsiveFont(14),
+    fontWeight: '600',
+  },
+
+  bottomSheetReserveConfirmButton: {
+    flex: 1,
+    marginLeft: responsiveWidth(2),
+    backgroundColor: Colors.goldPrimary,
+    paddingVertical: responsiveHeight(2),
+    borderRadius: responsiveWidth(2.5),
+    borderWidth: 1,
+    borderColor: Colors.goldAccent,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  bottomSheetReserveConfirmButtonText: {
+    color: Colors.darkPrimary,
+    fontSize: responsiveFont(14),
+    fontWeight: '700',
+  },
+
+  roomCardHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: responsiveHeight(0.8),
+  },
+
+  roomCardDescriptionText: {
+    lineHeight: responsiveFont(13),
+  },
+
+cardContainer: {
+  width: responsiveWidth(75),
+  height: responsiveHeight(40),
+  borderRadius: responsiveWidth(4),
+  borderWidth: 1,
+  borderColor: 'red',
+},
+
+touchableFixed: {
+  borderRadius: responsiveWidth(4),
+  padding: responsiveWidth(2.5),
+  height: responsiveHeight(30),
+  backgroundColor: Colors.cardBackground,
+  borderWidth: 1.5,
+  borderColor: Colors.goldPrimary,
+},
+
+roomCardReserveButton: {
+  backgroundColor: Colors.goldPrimary,
+  paddingVertical: responsiveHeight(1.5),
+  paddingHorizontal: responsiveWidth(6),
+  borderRadius: responsiveWidth(2.5),
+  marginTop: responsiveHeight(1.5),
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderWidth: 1.5,
+  borderColor: Colors.goldAccent,
+  shadowColor: Colors.goldPrimary,
+  shadowOffset: { width: 0, height: responsiveHeight(0.3) },
+  shadowOpacity: 0.3,
+  shadowRadius: responsiveWidth(2),
+  elevation: 5,
+
+},
 });
