@@ -43,7 +43,7 @@ const RenderRegister = () => {
                     <TextInput
                         value={formData.email}
                         onChangeText={(text) => handleChange('email', text)}
-                        placeholder="email@email.com"
+                        placeholder="Digite seu E-mail"
                         keyboardType="email-address"
                         autoCapitalize="none"
                         style={style.inputField}
@@ -61,7 +61,7 @@ const RenderRegister = () => {
                         type={'cpf'}
                         value={formData.cpf}
                         onChangeText={(text) => handleChange('cpf', text)}
-                        placeholder="000.000.000-00"
+                        placeholder="Digite seu CPF"
                         keyboardType="numeric"
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
@@ -83,7 +83,7 @@ const RenderRegister = () => {
                         }}
                         value={formData.phone}
                         onChangeText={(text) => handleChange('phone', text)}
-                        placeholder="(00) 00000-0000"
+                        placeholder="Digite seu Telefone"
                         keyboardType="phone-pad"
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
@@ -99,7 +99,7 @@ const RenderRegister = () => {
                     <TextInput
                         value={formData.password}
                         onChangeText={(text) => handleChange('password', text)}
-                        placeholder="***********"
+                        placeholder="Digite sua Senha"
                         secureTextEntry={!showPassword}
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
@@ -107,7 +107,7 @@ const RenderRegister = () => {
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                         <MaterialCommunityIcons 
                             name={showPassword ? "eye-off" : "eye"} 
-                            size={20} 
+                            size={22} 
                             style={style.eyeIcon} 
                         />
                     </TouchableOpacity>
@@ -122,7 +122,7 @@ const RenderRegister = () => {
                     <TextInput
                         value={formData.confirmPassword}
                         onChangeText={(text) => handleChange('confirmPassword', text)}
-                        placeholder="***********"
+                        placeholder="Confirma Senha"
                         secureTextEntry={!showConfirmPassword}
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
@@ -130,7 +130,7 @@ const RenderRegister = () => {
                     <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
                         <MaterialCommunityIcons 
                             name={showConfirmPassword ? "eye-off" : "eye"} 
-                            size={20} 
+                            size={23} 
                             style={style.eyeIcon} 
                         />
                     </TouchableOpacity>

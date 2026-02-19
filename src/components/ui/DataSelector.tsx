@@ -54,7 +54,7 @@ const DateSelector = ({ onSelectDate, onClose, title = "Selecione a data" }: Pro
                             textHeaderColor: Colors.goldPrimary,
                             textDefaultColor: Colors.textPrimary,
                             textSecondaryColor: Colors.textSecondary,
-                            textFontSize: responsiveFont(14),
+                            textFontSize: responsiveFont(15),
                             textHeaderFontSize: responsiveFont(16),
                             defaultFont: "System",
                             headerFont: "System",

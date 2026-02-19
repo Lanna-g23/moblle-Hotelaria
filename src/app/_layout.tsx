@@ -1,15 +1,10 @@
-import AuthProvider from "@/contexts/AuthContext";
-import { Slot, Stack } from "expo-router";
+//import AuthProvider from "@/contexts/AuthContext";
+import { Slot } from "expo-router";
 import React from "react";
 
 const RootLayout = () => {
-   return(
-    <AuthProvider>
-        <Stack screenOptions={{ headerShown: false}}>
-            
-        </Stack>
-    </AuthProvider>
-   );
+    {/* Slot atribui ao roteamento  */}
+    return <Slot/>
 }
 
 export default RootLayout;

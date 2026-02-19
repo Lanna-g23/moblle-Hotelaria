@@ -13,33 +13,33 @@ const responsiveHeight = (percent: number) => {
 
 const responsiveFont = (size: number) => {
   const width = Dimensions.get('window').width;
-  return size * (width / 375);
+  return size * (width / 385);
 };
 
 export { responsiveFont, responsiveHeight, responsiveWidth };
 
 export const Colors = {
-  darkPrimary: '#121212',
-  darkSecondary: '#1a1a1a',
-  darkTertiary: '#2d2d2d',
-  goldPrimary: '#D4AF37',
-  goldSecondary: '#FFD700',
-  goldAccent: '#B8860B',
-  inputBackground: '#ffffff',
-  inputText: '#121212',
-  inputBorder: '#e0e0e0',
-  grayLight: '#f5f5f5',
-  grayMedium: '#e0e0e0',
-  grayDark: '#b0b0b0',
-  textPrimary: '#ffffff',
-  textSecondary: '#cccccc',
-  textDisabled: '#888888',
+  darkPrimary: '#00043c',
+  darkSecondary: '#00085e7f',
+  darkTertiary: '#00023c',
+  goldPrimary: '#3b77fa',
+  goldSecondary: '#0009bc',
+  goldAccent: '#031496',
+  inputBackground: '#95b6ed',
+  inputText: '#030388',
+  inputBorder: '#001eff',
+  grayLight: '#e60000',
+  grayMedium: '#0704c1',
+  grayDark: '#00106b',
+  textPrimary: '#020f49',
+  textSecondary: '#1654e4fc',
+  textDisabled: '#03009f',
   success: '#27ae60',
   error: '#e74c3c',
-  warning: '#f39c12',
-  overlay: 'rgba(0, 0, 0, 0.7)',
-  goldOverlay: 'rgba(212, 175, 55, 0.1)',
-  cardBackground: '#1a1a1a',
+  warning: '#02128bfd',
+  overlay: '#010d50a5',
+  goldOverlay: '#002278fd',
+  cardBackground: '#000a4e',
 };
 
 export const global = StyleSheet.create({
@@ -50,28 +50,28 @@ export const global = StyleSheet.create({
 
   dateSelectorContainer: {
   width: '100%',
-  maxWidth: responsiveWidth(95),
+  maxWidth: responsiveWidth(97),
   backgroundColor: Colors.darkSecondary,
   borderRadius: responsiveWidth(4),
-  padding: responsiveWidth(4),
+  padding: responsiveWidth(5),
   borderWidth: 1.5,
   borderColor: Colors.goldPrimary,
   shadowColor: Colors.goldPrimary,
-  shadowOffset: { width: 0, height: responsiveHeight(0.5) },
+  shadowOffset: { width: 0, height: responsiveHeight(0.4)},
   shadowOpacity: 0.3,
-  shadowRadius: responsiveWidth(4),
+  shadowRadius: responsiveWidth(5),
   elevation: 15,
 },
 
 dateSelectorHeader: {
   width: '100%',
   alignItems: 'center',
-  marginBottom: responsiveHeight(1),
+  marginBottom: responsiveHeight(3),
 },
 
 dateSelectorTitle: {
-  fontSize: responsiveFont(18),
-  fontWeight: '600',
+  fontSize: responsiveFont(17),
+  fontWeight: '500',
   color: Colors.goldPrimary,
   marginBottom: responsiveHeight(1),
 },
@@ -79,22 +79,22 @@ dateSelectorTitle: {
 dateSelectorCalendarContainer: {
   borderRadius: responsiveWidth(3),
   overflow: 'hidden',
-  marginBottom: responsiveHeight(2),
+  marginBottom: responsiveHeight(4),
 },
 
 dateSelectorButtonsContainer: {
   flexDirection: 'row',
   justifyContent: 'space-between',
   width: '100%',
-  marginTop: responsiveHeight(2),
+  marginTop: responsiveHeight(3),
 },
 
 dateSelectorCancelButton: {
   flex: 1,
   marginRight: responsiveWidth(2),
   backgroundColor: Colors.darkTertiary,
-  paddingVertical: responsiveHeight(1.8),
-  borderRadius: responsiveWidth(2.5),
+  paddingVertical: responsiveHeight(1.7),
+  borderRadius: responsiveWidth(2.4),
   borderWidth: 1,
   borderColor: Colors.textSecondary,
   alignItems: 'center',
@@ -115,7 +115,7 @@ dateSelectorConfirmButton: {
 
 dateSelectorCancelText: {
   color: Colors.textSecondary,
-  fontSize: responsiveFont(14),
+  fontSize: responsiveFont(15),
   fontWeight: '600',
 },
 
@@ -210,21 +210,25 @@ datePickerDisabledDayText: {
   KeyboardAvoiding: {
     flex: 1,
   },
+
   container: {
     flex: 1,
     backgroundColor: Colors.darkPrimary,
   },
+
   header: {
     alignItems: "center",
     marginBottom: responsiveHeight(4),
     paddingTop: responsiveHeight(3),
   },
+
   content: {
     flex: 1,
     backgroundColor: Colors.darkPrimary,
     paddingHorizontal: responsiveWidth(5),
     paddingTop: responsiveHeight(2),
   },
+
   title: {
     fontSize: responsiveFont(32),
     fontWeight: "300",
@@ -232,6 +236,7 @@ datePickerDisabledDayText: {
     marginTop: responsiveHeight(2),
     letterSpacing: 1,
   },
+
   subTitle: {
     fontSize: responsiveFont(18),
     fontWeight: "400",
@@ -239,17 +244,21 @@ datePickerDisabledDayText: {
     marginTop: responsiveHeight(1),
     textAlign: "center",
   },
+
   textWhite: {
     color: Colors.textPrimary,
   },
+
   textGold: {
     color: Colors.goldPrimary,
   },
+
   inputBorder: {
     borderWidth: 1,
     borderColor: Colors.inputBorder,
     borderRadius: responsiveWidth(2.5),
   },
+
   inputBox: {
     flexDirection: "row",
     alignItems: "center",
@@ -260,24 +269,29 @@ datePickerDisabledDayText: {
     minHeight: responsiveHeight(6),
     width: '100%',
   },
+
   icon: {
     marginRight: responsiveWidth(3),
     color: Colors.textDisabled,
   },
+
   inpError: {
     borderColor: Colors.error,
     borderWidth: 1.5,
   },
+
   errotext: {
     color: Colors.error,
     fontSize: responsiveFont(12),
     marginTop: responsiveHeight(0.5),
   },
+
   eyeIcon: {
     position: "absolute",
     right: responsiveWidth(4),
     top: responsiveHeight(3.5),
   },
+
   modalView: {
     backgroundColor: Colors.darkSecondary,
     borderRadius: responsiveWidth(5),
@@ -291,15 +305,17 @@ datePickerDisabledDayText: {
     shadowRadius: responsiveWidth(3),
     elevation: 10,
   },
+  
   centerView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: Colors.overlay,
   },
+
   button: {
     backgroundColor: Colors.darkTertiary,
-    paddingVertical: responsiveHeight(1.8),
+    paddingVertical: responsiveHeight(1.4),
     paddingHorizontal: responsiveWidth(8),
     borderRadius: responsiveWidth(2.5),
     borderWidth: 1.5,
@@ -903,7 +919,7 @@ modalContent: {
 
   bottomSheetReserveDivider: {
     height: 1,
-    backgroundColor: 'rgba(212, 175, 55, 0.1)',
+    backgroundColor: '#0314d4e2',
     marginVertical: responsiveHeight(2),
   },
 
@@ -969,11 +985,11 @@ cardContainer: {
 },
 
 touchableFixed: {
-  borderRadius: responsiveWidth(4),
+  borderRadius: responsiveWidth(5),
   padding: responsiveWidth(2.5),
-  height: responsiveHeight(30),
+  height: responsiveHeight(33),
   backgroundColor: Colors.cardBackground,
-  borderWidth: 1.5,
+  borderWidth: 1.3,
   borderColor: Colors.goldPrimary,
 },
 
