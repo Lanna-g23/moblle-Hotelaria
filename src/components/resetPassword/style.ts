@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 44,
     elevation: 10,
-    shadowColor: 'rgb(0, 0, 0)',
+    shadowColor: '#000000',
     shadowOpacity: 0.5,
     shadowRadius: 5,
   },

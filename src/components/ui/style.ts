@@ -3,43 +3,43 @@ const {width, height} = Dimensions.get("window");
 
 const responsiveWidth = (percent: number) => {
   const width = Dimensions.get('window').width;
-  return width * (percent / 100);
+  return width * (percent / 102);
 };
 
 const responsiveHeight = (percent: number) => {
   const height = Dimensions.get('window').height;
-  return height * (percent / 100);
+  return height * (percent / 105);
 };
 
 const responsiveFont = (size: number) => {
   const width = Dimensions.get('window').width;
-  return size * (width / 385);
+  return size * (width / 370);
 };
 
 export { responsiveFont, responsiveHeight, responsiveWidth };
 
 export const Colors = {
-  darkPrimary: '#00043c',
-  darkSecondary: '#00085e7f',
-  darkTertiary: '#00023c',
-  goldPrimary: '#3b77fa',
-  goldSecondary: '#0009bc',
-  goldAccent: '#031496',
-  inputBackground: '#95b6ed',
-  inputText: '#030388',
-  inputBorder: '#001eff',
-  grayLight: '#e60000',
-  grayMedium: '#0704c1',
-  grayDark: '#00106b',
-  textPrimary: '#020f49',
+  darkPrimary: '#01004f',
+  darkSecondary: '#0b003b',
+  darkTertiary: '#2600cf',
+  goldPrimary: '#006eff',
+  goldSecondary: '#088cff',
+  goldAccent: '#0b19b8',
+  inputBackground: '#b2d7f8',
+  inputText: '#000000',
+  inputBorder: '#b2d7f8',
+  grayLight: '#ffffff',
+  grayMedium: '#b2d7f8',
+  grayDark: '#afc5f7',
+  textPrimary: '#ffffff',
   textSecondary: '#1654e4fc',
-  textDisabled: '#03009f',
+  textDisabled: '#0004da',
   success: '#27ae60',
-  error: '#e74c3c',
-  warning: '#02128bfd',
-  overlay: '#010d50a5',
-  goldOverlay: '#002278fd',
-  cardBackground: '#000a4e',
+  error: '#f26353',
+  warning: '#a50000',
+  overlay: '#151515b3',
+  goldOverlay: '#0000001a',
+  cardBackground: '#000000',
 };
 
 export const global = StyleSheet.create({
@@ -53,7 +53,7 @@ export const global = StyleSheet.create({
   maxWidth: responsiveWidth(97),
   backgroundColor: Colors.darkSecondary,
   borderRadius: responsiveWidth(4),
-  padding: responsiveWidth(5),
+  padding: responsiveWidth(4),
   borderWidth: 1.5,
   borderColor: Colors.goldPrimary,
   shadowColor: Colors.goldPrimary,
@@ -121,7 +121,7 @@ dateSelectorCancelText: {
 
 dateSelectorConfirmText: {
   color: Colors.darkPrimary,
-  fontSize: responsiveFont(14),
+  fontSize: responsiveFont(13),
   fontWeight: '700',
 },
 
@@ -226,12 +226,12 @@ datePickerDisabledDayText: {
     flex: 1,
     backgroundColor: Colors.darkPrimary,
     paddingHorizontal: responsiveWidth(5),
-    paddingTop: responsiveHeight(2),
+    paddingTop: responsiveHeight(3),
   },
 
   title: {
     fontSize: responsiveFont(32),
-    fontWeight: "300",
+    fontWeight: "400",
     color: Colors.goldPrimary,
     marginTop: responsiveHeight(2),
     letterSpacing: 1,
@@ -266,7 +266,7 @@ datePickerDisabledDayText: {
     backgroundColor: Colors.inputBackground,
     paddingHorizontal: responsiveWidth(4),
     paddingVertical: responsiveHeight(1.8),
-    minHeight: responsiveHeight(6),
+    minHeight: responsiveHeight(7),
     width: '100%',
   },
 
@@ -289,7 +289,7 @@ datePickerDisabledDayText: {
   eyeIcon: {
     position: "absolute",
     right: responsiveWidth(4),
-    top: responsiveHeight(3.5),
+    top: responsiveHeight(4.5),
   },
 
   modalView: {
@@ -305,7 +305,7 @@ datePickerDisabledDayText: {
     shadowRadius: responsiveWidth(3),
     elevation: 10,
   },
-  
+
   centerView: {
     flex: 1,
     justifyContent: "center",
@@ -323,12 +323,14 @@ datePickerDisabledDayText: {
     alignItems: "center",
     justifyContent: "center",
   },
+
   buttonText: {
     color: Colors.goldPrimary,
     fontSize: responsiveFont(15),
     fontWeight: "600",
     letterSpacing: 0.5,
   },
+
   dateText: {
     color: Colors.textSecondary,
     fontSize: responsiveFont(14),
@@ -346,10 +348,12 @@ modalContent: {
   width: '100%',
   maxWidth: responsiveWidth(90),
 },
+
   iosPicker: {
     backgroundColor: Colors.darkTertiary,
     borderRadius: responsiveWidth(3),
   },
+
   closeButton: {
     backgroundColor: Colors.darkTertiary,
     paddingVertical: responsiveHeight(1.5),
@@ -359,11 +363,13 @@ modalContent: {
     borderWidth: 1,
     borderColor: Colors.goldPrimary,
   },
+
   closeButtonText: {
     color: Colors.goldPrimary,
     fontSize: responsiveFont(14),
     fontWeight: "600",
   },
+
   label: {
     fontSize: responsiveFont(11),
     fontWeight: '600',
@@ -371,9 +377,11 @@ modalContent: {
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
+
   iconContainer: {
     marginLeft: responsiveWidth(2),
   },
+
   titleCard: {
     fontSize: responsiveFont(14),
     fontWeight: '600',
@@ -381,11 +389,13 @@ modalContent: {
     color: Colors.goldPrimary,
     letterSpacing: 0.5,
   },
+
   priceContainer: {
     marginLeft: responsiveWidth(2),
     alignItems: 'flex-end',
     justifyContent: 'center',
   },
+
   price: {
     fontSize: responsiveFont(16),
     fontWeight: 'bold',
@@ -398,15 +408,18 @@ modalContent: {
     width: '100%',
     marginBottom: responsiveHeight(1),
   },
+
   cardContentFixed: {
     flex: 1,
     justifyContent: 'space-between',
   },
+
   textFixed: {
     color: Colors.textSecondary,
     fontSize: responsiveFont(10),
     lineHeight: responsiveFont(13),
   },
+
   descriptionContainerFixed: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -424,10 +437,12 @@ modalContent: {
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
+
   fieldContainerGold: {
     borderColor: Colors.goldPrimary,
     borderWidth: 1.5,
   },
+
   fieldLabel: {
     fontSize: responsiveFont(12),
     fontWeight: '600',
@@ -436,12 +451,14 @@ modalContent: {
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
+
   fieldSubtitle: {
     fontSize: responsiveFont(12),
     color: Colors.textSecondary,
     marginTop: responsiveHeight(0.8),
     fontStyle: 'italic',
   },
+
   sectionTitle: {
     fontSize: responsiveFont(16),
     fontWeight: '600',
@@ -451,6 +468,7 @@ modalContent: {
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
+
   goldDivider: {
     height: 1.5,
     backgroundColor: Colors.goldPrimary,
@@ -459,6 +477,7 @@ modalContent: {
     marginVertical: responsiveHeight(2.5),
     opacity: 0.5,
   },
+
   goldGradient: {
     position: 'absolute',
     top: 0,
@@ -468,6 +487,7 @@ modalContent: {
     backgroundColor: Colors.goldPrimary,
     opacity: 0.3,
   },
+
   guestsContainer: {
     alignItems: 'center',
     marginBottom: responsiveHeight(3),
@@ -479,28 +499,34 @@ modalContent: {
     borderWidth: 1,
     borderColor: Colors.inputBorder,
   },
+
   scrollViewContainer: {
     paddingHorizontal: responsiveWidth(3),
   },
+
   roomCardContainer: {
     width: responsiveWidth(75),
     marginRight: responsiveWidth(3),
   },
+
   dateInputContainer: {
     marginBottom: responsiveHeight(2),
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
+
   inputSpinContainer: {
     width: responsiveWidth(50),
   },
+
   sectionContainer: {
     marginBottom: responsiveHeight(3),
   },
+
   goldDot: {
     width: responsiveWidth(1.8),
     height: responsiveWidth(1.8),
-    borderRadius: responsiveWidth(0.9),
+    borderRadius: responsiveWidth(0.7),
     backgroundColor: Colors.goldPrimary,
   },
 
@@ -512,8 +538,8 @@ modalContent: {
     padding: responsiveWidth(3.5),
     marginBottom: responsiveHeight(2),
     borderWidth: 1,
-    borderColor: 'rgba(212, 175, 55, 0.15)',
-    shadowColor: '#000',
+    borderColor: '#000ac71a',
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -532,7 +558,7 @@ modalContent: {
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(212, 175, 55, 0.2)',
+    borderColor: '#000ac71a',
   },
 
   reserveImageText: {

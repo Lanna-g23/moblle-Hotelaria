@@ -37,8 +37,8 @@ export const style = StyleSheet.create({
 
   leftArrow: {
     position: 'absolute',
-    top: height * -0.13,
-    left: width * 0.06,
+    top: height * -0.18,
+    left: width * 0.04,
     zIndex: 10,
   },
 
@@ -47,9 +47,9 @@ export const style = StyleSheet.create({
   },
 
   inputLabel: {
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: '600',
-    marginBottom: 7,
+    marginBottom: 8,
     color: '#0060f0',
   },
 
@@ -58,32 +58,32 @@ export const style = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#0004ff',
-    borderRadius: 9,
+    borderRadius: 8,
     paddingHorizontal: 16,
-    paddingVertical: 13,
+    paddingVertical: 12,
     backgroundColor: '#b2d7f8',
-    width: width * 0.87
+    width: width * 0.76
   },
 
   inputField: {
     flex: 1,
     fontSize: 16,
-    color: '#010e88',
+    color: '#040668',
     padding: 0,
     margin: 0,
   },  
 
   inputIcon: {
     marginRight: 12,
-    color: '#040bd9',
+    color: '#040ce7',
   },
 
   eyeIcon: {
     color: '#0b2be3',
-    marginLeft: 14,
+    marginLeft: 12,
   },
 
   placeholderColor: {
-    color: '#2870f7',
+    color: '#000d55',
   },
 });

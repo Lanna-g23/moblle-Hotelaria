@@ -1,4 +1,4 @@
-/*import {createContext } from "react";
+import {createContext } from "react";
 
 type AuthContextProps = {
     token: string | null;
@@ -15,4 +15,4 @@ type AuthContextProps = {
     </AuthContext.Provider>
  };
 
- export default AuthProvider;*/
+ export default AuthProvider;
