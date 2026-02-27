@@ -10,25 +10,23 @@ type Props = {
     icon?: keyof typeof FontAwesome6.glyphMap;
     children: React.ReactNode;
 }
-
+ 
 const AuthContainer = ({title, subtitle, icon, children }:Props) => {
     return (
         <SafeAreaView style={global.safeArea}>
-        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={global.KeyboardAvoiding}>
-            <ScrollView style = {global.container}>
-
-                <View style = {global.header}>
-                    {!!icon && <FontAwesome6 name={icon} size={47} color="#0084ff"/>}
-                    {!!title && <Text style = {[global.textWhite, global.title]}>{title}</Text>}
-                    {!!subtitle && <Text style = {[global.textWhite, global.subTitle]}>{subtitle}</Text>}
-                </View>
-
-                <View style = {global.content}>
-                    {children}
-                </View>  
-
-                </ScrollView>
-        </KeyboardAvoidingView>
+            <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={global.KeyboardAvoiding}>
+                <ScrollView style = {global.container}>
+                    <View style = {global.header}>
+                        {!!icon && <FontAwesome6 name={icon} size={47} color="#0084ff"/>}
+                        {!!title && <Text style = {[global.textWhite, global.title]}>{title}</Text>}
+                        {!!subtitle && <Text style = {[global.textWhite, global.subTitle]}>{subtitle}</Text>}
+                        </View>
+                        
+                        <View style = {global.content}>
+                            {children}
+                        </View>
+                </ScrollView>   
+            </KeyboardAvoidingView>
         </SafeAreaView>
     );
 }

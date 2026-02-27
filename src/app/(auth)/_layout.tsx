@@ -19,10 +19,20 @@ const AuthLayout = () => {
 }
 export default AuthLayout;*/
 
-import { Stack } from "expo-router";
-import React from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { Redirect, Stack } from "expo-router";
+
 
 const AuthLayout = () => {
+
+    const { token, isLoading } = useAuth();
+
+    if(isLoading) return null;
+
+    if (token) {
+        return <Redirect href="/(tabs)/explorer" />
+    }
+
     return (
         <Stack screenOptions={{headerShown: false}}>
             <Stack.Screen name="index" options={{ title: "Login" }}/>

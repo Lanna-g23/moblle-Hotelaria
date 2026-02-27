@@ -1,5 +1,5 @@
 import RenderExplorer from '../../components/explorer';
-import React from 'react';
+
 
 
 const explorer = () => {
