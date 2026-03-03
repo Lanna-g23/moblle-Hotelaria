@@ -30,7 +30,7 @@ export const style = StyleSheet.create({
   },
 
   changePassTxt:{
-    color: "#0017c7",
+    color: "#2969ff",
     textDecorationLine: "underline",
     marginTop: 25,
   },

@@ -1,6 +1,6 @@
 import { API_URL } from "@/constants/api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 type AuthContextProps = {
   token: string | null;
@@ -14,7 +14,6 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  // Carregar token ao abrir o app
   useEffect(() => {
     (async () => {
       try {
@@ -33,18 +32,18 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       },
       body: JSON.stringify({ email, senha }),
     });
-    // Back-end retorna erro {erro: "..."} quando falha
+    
     if (!res.ok) {
       const err = await res.json().catch(() => null);
       throw new Error(err?.erro || "Credenciais inválidas");
     }
-    //Back-end retorna JSON
+    
     const tokenAPI: string = await res.json();
 
     await AsyncStorage.setItem("token", tokenAPI);
     setToken(tokenAPI);
   }
-  //SignOut:
+  
   async function signOut() {
     await AsyncStorage.removeItem("token");
     setToken(null);

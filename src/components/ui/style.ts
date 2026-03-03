@@ -19,7 +19,7 @@ const responsiveFont = (size: number) => {
 export { responsiveFont, responsiveHeight, responsiveWidth };
 
 export const Colors = {
-  darkPrimary: '#01004f',
+  darkPrimary: '#010054',
   darkSecondary: '#0b003b',
   darkTertiary: '#2600cf',
   goldPrimary: '#006eff',
@@ -37,9 +37,9 @@ export const Colors = {
   success: '#27ae60',
   error: '#f26353',
   warning: '#a50000',
-  overlay: '#151515b3',
-  goldOverlay: '#0000001a',
-  cardBackground: '#000000',
+  overlay: '#000b4753',
+  goldOverlay: '#7116161a',
+  cardBackground: '#0004388d',
 };
 
 export const global = StyleSheet.create({
@@ -429,8 +429,8 @@ modalContent: {
 
   fieldContainer: {
     backgroundColor: Colors.darkSecondary,
-    borderRadius: responsiveWidth(3),
-    padding: responsiveWidth(5),
+    borderRadius: responsiveWidth(4),
+    padding: responsiveWidth(4),
     marginBottom: responsiveHeight(2),
     borderWidth: 1,
     borderColor: Colors.inputBorder,
@@ -444,7 +444,7 @@ modalContent: {
   },
 
   fieldLabel: {
-    fontSize: responsiveFont(12),
+    fontSize: responsiveFont(14),
     fontWeight: '600',
     color: Colors.goldPrimary,
     marginBottom: responsiveHeight(1.5),
@@ -453,10 +453,10 @@ modalContent: {
   },
 
   fieldSubtitle: {
-    fontSize: responsiveFont(12),
+    fontSize: responsiveFont(13),
     color: Colors.textSecondary,
-    marginTop: responsiveHeight(0.8),
-    fontStyle: 'italic',
+    marginTop: responsiveHeight(0.6),
+    fontStyle: 'normal',
   },
 
   sectionTitle: {
@@ -464,7 +464,7 @@ modalContent: {
     fontWeight: '600',
     color: Colors.goldPrimary,
     marginBottom: responsiveHeight(2),
-    paddingLeft: responsiveWidth(2),
+    paddingLeft: responsiveWidth(3),
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
@@ -472,10 +472,10 @@ modalContent: {
   goldDivider: {
     height: 1.5,
     backgroundColor: Colors.goldPrimary,
-    width: responsiveWidth(50),
+    width: responsiveWidth(80),
     alignSelf: 'center',
-    marginVertical: responsiveHeight(2.5),
-    opacity: 0.5,
+    marginVertical: responsiveHeight(2.4),
+    opacity: 0.8,
   },
 
   goldGradient: {
@@ -490,18 +490,18 @@ modalContent: {
 
   guestsContainer: {
     alignItems: 'center',
-    marginBottom: responsiveHeight(3),
-    padding: responsiveWidth(5),
+    marginBottom: responsiveHeight(2),
+    padding: responsiveWidth(4),
     backgroundColor: Colors.darkSecondary,
     borderRadius: responsiveWidth(3),
-    width: responsiveWidth(90),
+    width: responsiveWidth(70),
     alignSelf: 'center',
     borderWidth: 1,
     borderColor: Colors.inputBorder,
   },
 
   scrollViewContainer: {
-    paddingHorizontal: responsiveWidth(3),
+    paddingHorizontal: responsiveWidth(8),
   },
 
   roomCardContainer: {
@@ -510,7 +510,7 @@ modalContent: {
   },
 
   dateInputContainer: {
-    marginBottom: responsiveHeight(2),
+    marginBottom: responsiveHeight(1),
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
@@ -520,7 +520,7 @@ modalContent: {
   },
 
   sectionContainer: {
-    marginBottom: responsiveHeight(3),
+    marginBottom: responsiveHeight(1),
   },
 
   goldDot: {

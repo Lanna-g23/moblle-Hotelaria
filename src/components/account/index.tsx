@@ -1,27 +1,34 @@
-import { FontAwesome5, FontAwesome6, MaterialCommunityIcons } from '@expo/vector-icons';
-import React, { useState } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
+import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
 import {
-  Dimensions, Modal,
-  ScrollView, Text,
-  TextInput, TouchableOpacity, View, } from 'react-native';
+  Dimensions,
+  Modal, ScrollView,
+  Text, TextInput,
+  TouchableOpacity, View} from 'react-native';
+
 import { TextInputMask } from 'react-native-masked-text';
 import AuthContainer from '../ui/AuthContainer';
 import TextField from '../ui/TextFleld';
 import { Colors, styles } from './styles';
 
 const { width } = Dimensions.get('window');
-const responsiveFont = (size: number) => size * (width / 368);
-const iconSize = responsiveFont(18);
+const responsiveFont = (size: number) => size * (width / 375);
+const iconSize = responsiveFont(17);
 
 const RenderAccount = () => {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const [userData, setUserData] = useState({
-    name: 'alacazan',
-    email: 'a@a.a',
+    name: 'Lanna Giullia',
+    email: 'lanna@gmail.com',
     phone: '(12) 12345-1234',
-    cpf: '123.123.123-12',
+    cpf: '123.123.123-66',
   });
 
   const [passwordData, setPasswordData] = useState({
@@ -33,6 +40,14 @@ const RenderAccount = () => {
   const handleSaveChanges = () => {
     alert('Alterações salvas com sucesso!');
   };
+
+    const { signOut } = useAuth();
+    const router = useRouter();
+    const handleLogout = async () => {
+      signOut();
+      router.replace("/(auth)");
+    }
+  
 
   const handlePasswordChange = () => {
     setShowPasswordModal(false);
@@ -63,11 +78,11 @@ const RenderAccount = () => {
       </Text>
 
       {variant === 'secondary' && (
-        <FontAwesome6
+        <FontAwesome5
           name="crown"
-          size={responsiveFont(13)}
+          size={responsiveFont(15)}
           color={Colors.goldPrimary}
-          style={{ marginLeft: responsiveFont(4), opacity: 0.6 }}
+          style={{ marginLeft: responsiveFont(4), opacity: 0.7 }}
         />
       )}
     </TouchableOpacity>
@@ -80,7 +95,7 @@ const RenderAccount = () => {
         <View style={[styles.fieldContainer, styles.fieldContainerGold]}>
           <Text style={styles.fieldLabel}>
             <MaterialCommunityIcons
-              name="account-outline"
+              name="account-heart-outline"
               size={iconSize}
               color={Colors.goldPrimary}
             />{' '}
@@ -103,7 +118,7 @@ const RenderAccount = () => {
         <View style={styles.fieldContainer}>
           <Text style={styles.fieldLabel}>
             <MaterialCommunityIcons
-              name="email-outline"
+              name="email-heart-outline"
               size={iconSize}
               color={Colors.goldPrimary}
             />{' '}
@@ -197,6 +212,9 @@ const RenderAccount = () => {
         <View style={styles.actionsContainer}>
           <CustomButton title="Salvar Alterações" onPress={handleSaveChanges} />
         </View>
+        <View style={styles.actionsContainer}>
+          <CustomButton title="Logout" onPress={handleLogout} />
+        </View>
       </ScrollView>
 
       {/* MODAL */}
@@ -206,7 +224,7 @@ const RenderAccount = () => {
             <View style={styles.modalHeader}>
               <MaterialCommunityIcons
                 name="shield-lock-outline"
-                size={responsiveFont(34)}
+                size={responsiveFont(32)}
                 color={Colors.goldPrimary}
               />
               <Text style={styles.modalTitle}>Alterar Senha</Text>
@@ -238,6 +256,7 @@ const RenderAccount = () => {
                 onPress={() => setShowPasswordModal(false)}
               />
             </View>
+
           </View>
         </View>
       </Modal>

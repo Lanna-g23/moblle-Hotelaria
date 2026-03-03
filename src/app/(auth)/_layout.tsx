@@ -25,13 +25,7 @@ import { Redirect, Stack } from "expo-router";
 
 const AuthLayout = () => {
 
-    const { token, isLoading } = useAuth();
-
-    if(isLoading) return null;
-
-    if (token) {
-        return <Redirect href="/(tabs)/explorer" />
-    }
+    
 
     return (
         <Stack screenOptions={{headerShown: false}}>

@@ -5,7 +5,7 @@ import PassField from "../ui/PasswordField";
 import TextField from "../ui/TextFleld";
 import { Button } from "./Button";
 import { style } from "./style";
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useAuth } from "@/contexts/AuthContext";
 
 
@@ -24,7 +24,6 @@ const RenderLogin = () => {
         const error: Record<string, string> = {};
         if (touched.email && !email) error.email = "E-mail obrigatório";
         if (touched.password && !password) error.password = "Senha obrigatória";
-        if (touched.password && password && password.length < 6) error.password = "No mínimo 6 caracteres para a senha";
         if (touched.email && email && !isValidEmail(email)) error.email = "Digite um e-mail válido";
         return error;
     }, [email, password, touched]);
@@ -33,26 +32,19 @@ const RenderLogin = () => {
     
     const handleSubmit = async () => {
         try {
-            setLoading(true);
-            await signIn(email.trim(), password)
-            
-            await new Promise((req) => setTimeout(req, 2000));
-            
-            if (email === "a@a.a" && password === "123456") {
-                router.replace("/(tabs)/explorer");
-            }
-            else {
-                Alert.alert("Login inválido!");
-                return;
-            }      
-        }
-        catch (erro) {
-            Alert.alert("Erro", "Falha ao tentar logar!");
-        }
-    finally {
+
+        setLoading(true);
+        await signIn(email.trim(), password);
+
+        Alert.alert("Login bem-sucedido!");
+        router.replace("/(tabs)/explorer");
+        
+    } catch (erro: any) {
+        Alert.alert("Erro", erro?.message || "Falha ao tentar logar!");
+    } finally {
         setLoading(false);
-    }
-  };
+        }
+    };
 
     return(
         <AuthContainer

@@ -1,4 +1,4 @@
-import AuthContainer from "../ui/AuthContainer";
+import AuthContainer from "@/components/ui/AuthContainer";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import React, { useState } from "react";
@@ -29,7 +29,7 @@ const RenderRegister = () => {
             subtitle="Faça seu cadastro"
             icon="hotel"
             >
-            <View style={style.leftArrow}> 
+            <View style={style.leftArrow}>
                 <TouchableOpacity onPress={() => router.push("/(auth)")}> 
                     <MaterialCommunityIcons name="arrow-left" size={25} color="#9bc9f7" />
                 </TouchableOpacity>
@@ -104,6 +104,7 @@ const RenderRegister = () => {
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
                     />
+                    
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                         <MaterialCommunityIcons 
                             name={showPassword ? "eye-off" : "eye"} 

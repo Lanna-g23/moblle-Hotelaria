@@ -4,9 +4,9 @@ const { width, height } = Dimensions.get('window');
 const rf = (size: number) => size * (width / 375);
 
 export const Colors = {
-  darkPrimary: '#01004f',
-  darkSecondary: '#0b003b',
-  darkTertiary: '#2600cf',
+  darkPrimary: '#00094f',
+  darkSecondary: '#000d45',
+  darkTertiary: '#0015b8c2',
   goldPrimary: '#006eff',
   inputBackground: '#b2d7f8',
   inputText: '#006eff',
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   },
 
   scrollContent: {
-    padding: 16,
+    padding: 14,
   },
 
   fieldContainer: {

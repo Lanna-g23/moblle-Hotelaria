@@ -16,7 +16,7 @@ const RenderResetpass = () => {
         >
             <View style={style.leftArrow}> 
                 <TouchableOpacity onPress={() => router.push("/(auth)")}> 
-                    <MaterialCommunityIcons name="arrow-left" size={26} color="#0048e3" />
+                    <MaterialCommunityIcons name="arrow-left" size={26} color="#b3c8f7" />
                 </TouchableOpacity>
             </View> 
             
@@ -24,7 +24,7 @@ const RenderResetpass = () => {
             <TextField
                 label="Email"
                 icon={{ lib: "MaterialIcons", name: "email" }}
-                placeholder="email@email.com"
+                placeholder="Digite seu E-mail"
             />
 
             <Button

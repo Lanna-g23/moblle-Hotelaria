@@ -43,11 +43,11 @@ const handleDateSelect = (date: string) => {
         title="Explorar Quartos"
         icon="bed"
       >
-        <ScrollView style={global.container} contentContainerStyle={{ paddingBottom: 30 }}>
+        <ScrollView style={global.container} contentContainerStyle={{ paddingBottom: 31 }}>
           {/* Seção de datas */}
           <View style={global.sectionContainer}>
             <Text style={global.sectionTitle}>
-              <MaterialCommunityIcons name="calendar-range" size={18} color={Colors.goldPrimary} /> DATAS
+              <MaterialCommunityIcons name="calendar-range" size={19} color={Colors.goldPrimary} /> DATAS
             </Text>
             
             <View style={global.dateInputContainer}>
@@ -82,7 +82,7 @@ const handleDateSelect = (date: string) => {
               >
                 <View style={[global.fieldContainer, global.fieldContainerGold]}>
                   <Text style={global.fieldLabel}>
-                    <MaterialCommunityIcons name="calendar-arrow-left" size={14} color={Colors.goldPrimary} /> CHECK-OUT
+                    <MaterialCommunityIcons name="calendar-heart" size={16} color={Colors.goldPrimary} /> CHECK-OUT
                   </Text>
                   <TextField 
                     label=""
@@ -105,7 +105,7 @@ const handleDateSelect = (date: string) => {
           {/* Seção de hóspedes */}
           <View style={global.sectionContainer}>
             <Text style={global.sectionTitle}>
-              <MaterialCommunityIcons name="account-group" size={18} color={Colors.goldPrimary} /> HÓSPEDES
+              <MaterialCommunityIcons name="account-group-outline" size={19} color={Colors.goldPrimary} /> HÓSPEDES
             </Text>
             
             <View style={global.guestsContainer}>
@@ -133,7 +133,7 @@ const handleDateSelect = (date: string) => {
           {/* Seção de quartos disponíveis */}
           <View style={global.sectionContainer}>
             <Text style={global.sectionTitle}>
-              <MaterialCommunityIcons name="bed-king" size={18} color={Colors.goldPrimary} /> QUARTOS DISPONÍVEIS
+              <MaterialCommunityIcons name="bed-king" size={19} color={Colors.goldPrimary} /> QUARTOS DISPONÍVEIS
             </Text>
             
             <ScrollView 
@@ -172,7 +172,7 @@ const handleDateSelect = (date: string) => {
           {/* Seção de mais opções */}
           <View style={global.sectionContainer}>
             <Text style={global.sectionTitle}>
-              <MaterialCommunityIcons name="star-circle" size={18} color={Colors.goldPrimary} /> MAIS OPÇÕES
+              <MaterialCommunityIcons name="star-circle" size={19} color={Colors.goldPrimary} /> MAIS OPÇÕES
             </Text>
             
             <ScrollView 

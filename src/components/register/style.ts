@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 44,
     elevation: 10,
-    shadowColor: '#bad6fb',
+    shadowColor: '#000000',
     shadowOpacity: 0.5,
     shadowRadius: 5,
   },
@@ -43,7 +43,7 @@ export const style = StyleSheet.create({
   },
 
   inputContainer: {
-    marginTop: 17,
+    marginTop: 16,
   },
 
   inputLabel: {
@@ -59,23 +59,23 @@ export const style = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#0004ff',
     borderRadius: 8,
-    paddingHorizontal: 16,
+    paddingHorizontal: 15,
     paddingVertical: 12,
     backgroundColor: '#b2d7f8',
-    width: width * 0.76
+    width: width * 0.90
   },
 
   inputField: {
     flex: 1,
     fontSize: 16,
-    color: '#040668',
+    color: '#00028a',
     padding: 0,
     margin: 0,
   },  
 
   inputIcon: {
     marginRight: 12,
-    color: '#040ce7',
+    color: '#042ae7',
   },
 
   eyeIcon: {
@@ -84,6 +84,6 @@ export const style = StyleSheet.create({
   },
 
   placeholderColor: {
-    color: '#000d55',
+    color: '#5676f5',
   },
 });
