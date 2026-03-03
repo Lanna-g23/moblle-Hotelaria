@@ -30,7 +30,7 @@ const BottomSheet = ({ visible, onClose, children }: BottomSheetProps) => {
         }
       },
       onPanResponderRelease: (_, gestureState) => {
-        if (gestureState.dy > 150 || gestureState.vy > 0.5) {
+        if (gestureState.dy > 160 || gestureState.vy > 0.5) {
           closeModal();
         } else {
           Animated.spring(panY, {
@@ -86,28 +86,29 @@ const BottomSheet = ({ visible, onClose, children }: BottomSheetProps) => {
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(41, 41, 41, 0.5)',
+    backgroundColor: '#00000080',
     justifyContent: 'flex-end',
   },
   
   flex1: { flex: 1 },
+
   content: {
     backgroundColor: 'white',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    height: SCREEN_HEIGHT * 0.75,
+    height: SCREEN_HEIGHT * 0.77,
     paddingBottom: 40,
     elevation: 20,
-    shadowColor: '#000',
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: -3 },
     shadowOpacity: 0.2,
-    shadowRadius: 5,
+    shadowRadius: 6,
   },
 
   handle: {
     width: 50,
     height: 6,
-    backgroundColor: '#8b8b8b',
+    backgroundColor: '#a9c4f9',
     borderRadius: 3,
     alignSelf: 'center',
     marginTop: 15,

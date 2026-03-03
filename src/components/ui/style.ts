@@ -28,7 +28,7 @@ export const Colors = {
   inputBackground: '#b2d7f8',
   inputText: '#000000',
   inputBorder: '#b2d7f8',
-  grayLight: '#ffffff',
+  grayLight: '#f7f7f7',
   grayMedium: '#b2d7f8',
   grayDark: '#afc5f7',
   textPrimary: '#ffffff',
@@ -50,7 +50,7 @@ export const global = StyleSheet.create({
 
   dateSelectorContainer: {
   width: '100%',
-  maxWidth: responsiveWidth(97),
+  maxWidth: responsiveWidth(98),
   backgroundColor: Colors.darkSecondary,
   borderRadius: responsiveWidth(4),
   padding: responsiveWidth(4),
@@ -66,7 +66,7 @@ export const global = StyleSheet.create({
 dateSelectorHeader: {
   width: '100%',
   alignItems: 'center',
-  marginBottom: responsiveHeight(3),
+  marginBottom: responsiveHeight(2),
 },
 
 dateSelectorTitle: {
@@ -218,7 +218,7 @@ datePickerDisabledDayText: {
 
   header: {
     alignItems: "center",
-    marginBottom: responsiveHeight(4),
+    marginBottom: responsiveHeight(1),
     paddingTop: responsiveHeight(3),
   },
 
