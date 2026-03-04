@@ -122,20 +122,20 @@ const RoomCard = ({ label, description, icon, containerStyle }: Props) => {
 
           <View style={global.bottomSheetReserveDivider} />
           
-          <View style={{ marginVertical: 20 }}>
+          <View style={{ marginVertical: 19 }}>
             <Text style={{ 
               fontSize: 16, 
               fontWeight: '600', 
               color: Colors.darkPrimary,
-              marginBottom: 10 
+              marginBottom: 12 
             }}>
               Detalhes da Reserva
             </Text>
             
             <Text style={{ 
-              fontSize: 14, 
+              fontSize: 15, 
               color: Colors.grayDark, 
-              marginBottom: 20 
+              marginBottom: 21 
             }}>
               Preencha as informações para concluir sua reserva.
             </Text>

@@ -1,4 +1,3 @@
-
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { TouchableOpacity, View } from "react-native";
@@ -18,7 +17,7 @@ const PassField = (restInputProps: Props) => {
                 autoCorrect={false}            
             />
             <TouchableOpacity style={global.eyeIcon} onPress={() => setShow((showTrue) => !showTrue)}>
-                <Ionicons name={show ? "eye-outline" : "eye-off-outline"} size={21} 
+                <Ionicons name={show ? "eye-outline" : "eye-off-outline"} size={22} 
                 color={Colors.goldPrimary}/>
             </TouchableOpacity> 
         </View>
