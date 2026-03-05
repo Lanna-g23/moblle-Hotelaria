@@ -24,9 +24,9 @@ const TextField = ({label, errortext, icon, value, onChangeText, style, containe
         
         switch (icon.lib) {
             case 'MaterialIcons':
-                return <MaterialIcons name={icon.name} size={16} color={Colors.textDisabled} />;
+                return <MaterialIcons name={icon.name} size={17} color={Colors.textDisabled} />;
             case 'FontAwesome6':
-                return <FontAwesome6 name={icon.name} size={16} color={Colors.textDisabled} />;
+                return <FontAwesome6 name={icon.name} size={17} color={Colors.textDisabled} />;
             case 'FontAwesome5':
                 return <FontAwesome5 name={icon.name} size={17} color={Colors.textDisabled} />;
             default:

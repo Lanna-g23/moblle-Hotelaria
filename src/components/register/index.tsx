@@ -1,14 +1,19 @@
 import AuthContainer from "@/components/ui/AuthContainer";
+import { useAuth } from "@/contexts/AuthContext";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import React, { useState } from "react";
-import { Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import { Alert, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { TextInputMask } from 'react-native-masked-text';
 import { Button } from "./Button";
 import { style } from "./style";
 
 const RenderRegister = () => {
-    const [formData, setFormData] = React.useState({
+    const { register, isLoading: authLoading } = useAuth();
+    const [loading, setLoading] = useState(false);
+
+    const [formData, setFormData] = useState({
+        nome: '',
         email: '',
         cpf: '',
         phone: '',
@@ -23,6 +28,75 @@ const RenderRegister = () => {
         setFormData({...formData, [field]: value});
     };
 
+    const validateForm = () => {
+        if (!formData.nome || !formData.email || !formData.cpf || !formData.phone || !formData.password || !formData.confirmPassword) {
+            Alert.alert("Erro", "Todos os campos são obrigatórios");
+            return false;
+        }
+        
+        if (formData.password !== formData.confirmPassword) {
+            Alert.alert("Erro", "As senhas não coincidem");
+            return false;
+        }
+        
+        if (formData.password.length < 6) {
+            Alert.alert("Erro", "A senha deve ter pelo menos 6 caracteres");
+            return false;
+        }
+        
+        // validação básica de email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            Alert.alert("Erro", "E-mail inválido");
+            return false;
+        }
+        return true;
+    };
+    const handleRegister = async () => {
+        if (!validateForm()) return;
+        
+        setLoading(true);
+        
+        try {
+            console.log('Iniciando registro com dados:', {
+                nome: formData.nome,
+                email: formData.email,
+                cpf: formData.cpf,
+                telefone: formData.phone,
+            });
+            
+            const token = await register({
+                nome: formData.nome,
+                email: formData.email,
+                cpf: formData.cpf,
+                telefone: formData.phone,
+                passwords: formData.password
+            });
+            
+            console.log('Registro realizado com sucesso!');
+            
+            Alert.alert(
+                "Sucesso", 
+                "Cadastro realizado com sucesso!",
+                [
+                    { 
+                        text: "OK", 
+                        onPress: () => router.push("/(auth)")
+                    }
+                ]
+            );
+        } catch (error) {
+            console.error('Erro no registro:', error);
+            
+            Alert.alert(
+                "Erro no Cadastro", 
+                error instanceof Error ? error.message : "Erro ao conectar com o servidor"
+            );
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return(
         <AuthContainer
             title="Bem-Vindo"
@@ -34,6 +108,22 @@ const RenderRegister = () => {
                     <MaterialCommunityIcons name="arrow-left" size={25} color="#9bc9f7" />
                 </TouchableOpacity>
             </View> 
+
+            {/* Campo Nome Completo */}
+            <View style={style.inputContainer}>
+                <Text style={style.inputLabel}>Nome Completo</Text>
+                <View style={style.inputWrapper}>
+                    <MaterialCommunityIcons name="account" size={20} style={style.inputIcon} />
+                    <TextInput
+                        value={formData.nome}
+                        onChangeText={(text) => handleChange('nome', text)}
+                        placeholder="Seu nome completo"
+                        style={style.inputField}
+                        placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
+                    />
+                </View>
+            </View>
     
             {/* Campo E-mail */}
             <View style={style.inputContainer}>
@@ -48,6 +138,7 @@ const RenderRegister = () => {
                         autoCapitalize="none"
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
                     />
                 </View>
             </View>
@@ -65,6 +156,7 @@ const RenderRegister = () => {
                         keyboardType="numeric"
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
                     />
                 </View>
             </View>
@@ -87,6 +179,7 @@ const RenderRegister = () => {
                         keyboardType="phone-pad"
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
                     />
                 </View>
             </View>
@@ -103,6 +196,7 @@ const RenderRegister = () => {
                         secureTextEntry={!showPassword}
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
                     />
                     
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
@@ -127,6 +221,7 @@ const RenderRegister = () => {
                         secureTextEntry={!showConfirmPassword}
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
                     />
                     <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
                         <MaterialCommunityIcons 
@@ -139,8 +234,9 @@ const RenderRegister = () => {
             </View>
 
             <Button
-                title="Registre-se"
-                onPress={() => console.log('Registro:', formData)}
+                title={loading ? "Cadastrando..." : "Registre-se"}
+                onPress={handleRegister}
+                disabled={loading || authLoading}
             />
         </AuthContainer>
     )

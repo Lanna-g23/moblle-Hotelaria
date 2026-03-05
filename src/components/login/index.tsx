@@ -1,12 +1,12 @@
-import AuthContainer from "../ui/AuthContainer";
+import AuthContainer from "@/components/ui/AuthContainer";
+import { useAuth } from "@/contexts/AuthContext";
 import { router } from "expo-router";
+import React, { useMemo, useState } from 'react';
 import { Alert, Text, TouchableOpacity } from "react-native";
 import PassField from "../ui/PasswordField";
 import TextField from "../ui/TextFleld";
 import { Button } from "./Button";
 import { style } from "./style";
-import { useMemo, useState } from 'react';
-import { useAuth } from "@/contexts/AuthContext";
 
 
 function isValidEmail(email: string){
@@ -26,19 +26,19 @@ const RenderLogin = () => {
         if (touched.password && !password) error.password = "Senha obrigatória";
         if (touched.email && email && !isValidEmail(email)) error.email = "Digite um e-mail válido";
         return error;
-    }, [email, password, touched]);
+    }, 
+    [email, password, touched]);
     
     const canSubmit = email && password && Object.keys(errors).length === 0 && !loading;
     
     const handleSubmit = async () => {
-        try {
 
+    try {
         setLoading(true);
+        console.log("Tentando logar com:", { email, password });
         await signIn(email.trim(), password);
-
         Alert.alert("Login bem-sucedido!");
         router.replace("/(tabs)/explorer");
-        
     } catch (erro: any) {
         Alert.alert("Erro", erro?.message || "Falha ao tentar logar!");
     } finally {
@@ -54,7 +54,7 @@ const RenderLogin = () => {
         >
             <TextField
                 label="E-mail"
-                icon={{lib: "MaterialIcons", name: "email"}}
+                icon={{ lib: "MaterialIcons", name: "email" }}
                 placeholder="Digite seu E-mail"
                 value={email}
                 onChangeText={setEmail}
@@ -65,7 +65,7 @@ const RenderLogin = () => {
 
             <PassField
                 label="Senha"
-                icon={{lib: "MaterialIcons", name: "key"}}
+                icon={{ lib: "MaterialIcons", name: "key" }}
                 placeholder="Digite sua senha"
                 value={password}
                 onChangeText={setPassword}
@@ -79,15 +79,14 @@ const RenderLogin = () => {
                 disabled={!canSubmit}
             />
             
-            <TouchableOpacity onPress={()=> router.push("/(auth)/resetPass")}>
+            <TouchableOpacity onPress={() => router.push("/(auth)/resetPass")}>
                 <Text style={style.changePassTxt}>Redefina a sua senha!</Text>
             </TouchableOpacity>
-
-            <TouchableOpacity onPress={()=> router.push("/(auth)/register")}>
+            
+            <TouchableOpacity onPress={() => router.push("/(auth)/register")}>
                 <Text style={style.changePassTxt}>Cadastre-se!</Text>
             </TouchableOpacity>
         </AuthContainer>
     );
 };
-
 export default RenderLogin;
