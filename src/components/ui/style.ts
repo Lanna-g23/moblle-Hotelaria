@@ -289,7 +289,7 @@ datePickerDisabledDayText: {
   eyeIcon: {
     position: "absolute",
     right: responsiveWidth(4),
-    top: responsiveHeight(4.2),
+    top: responsiveHeight(3.8),
   },
 
   modalView: {

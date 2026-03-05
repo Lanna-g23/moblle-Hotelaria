@@ -58,20 +58,15 @@ const RenderRegister = () => {
         setLoading(true);
         
         try {
-            console.log('Iniciando registro com dados:', {
-                nome: formData.nome,
-                email: formData.email,
-                cpf: formData.cpf,
-                telefone: formData.phone,
-            });
-            
-            const token = await register({
+            const dados = {
                 nome: formData.nome,
                 email: formData.email,
                 cpf: formData.cpf,
                 telefone: formData.phone,
                 passwords: formData.password
-            });
+            }
+            console.log('Iniciando registro com dados:', dados);
+            const token = await register(dados);
             
             console.log('Registro realizado com sucesso!');
             

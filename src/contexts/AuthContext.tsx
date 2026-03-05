@@ -43,7 +43,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, senha:password }),
       });
     
     if (!res.ok) {
@@ -62,6 +62,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   async function register(userData: RegisterData) {
+    const url = `${API_URL}/login/cadastro`;
+
     try {
       const cpfLimpo = userData.cpf.replace(/\D/g, '');
       const telefoneLimpo = userData.telefone.replace(/\D/g, '');
@@ -74,17 +76,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         senha: userData.passwords
       };
       
-      const url = `${API_URL}/login/logon`;
-      
-      console.log('Enviando para registro:', {
-        url,
-        dados: {
-          nome: dadosParaEnviar.nome,
-          email: dadosParaEnviar.email,
-          cpf: dadosParaEnviar.cpf,
-          telefone: dadosParaEnviar.telefone
-        }
-      });
+      console.log('Enviando para registro:', url, dadosParaEnviar);
       
       const res = await fetch(url, {
         method: "POST",
@@ -95,7 +87,9 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       });
       
       console.log('Status da resposta:', res.status);
+      console.log('Status da resposta:', await res.json());
       
+      // codigo com problema abaixo : CORRIGIR
       if (!res.ok) {
         let errorMessage = "Erro ao realizar cadastro";
         
