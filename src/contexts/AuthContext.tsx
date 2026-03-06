@@ -7,7 +7,7 @@ type AuthContextProps = {
   isLoading: boolean;
   signIn: (email: string, password: string) => Promise<void>;
   signOut: () => Promise<void>;
-  register: (userData: RegisterData) => Promise<any>;
+  register: (userData: RegisterData) => Promise<string>;
 };
 
 type RegisterData = {
@@ -65,15 +65,15 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const url = `${API_URL}/login/cadastro`;
 
     try {
-      const cpfLimpo = userData.cpf.replace(/\D/g, '');
-      const telefoneLimpo = userData.telefone.replace(/\D/g, '');
+      const cpfLimpo = userData.cpf.replace(/\D/g, "");
+    const telefoneLimpo = userData.telefone.replace(/\D/g, "");
       
       const dadosParaEnviar = { 
         nome: userData.nome,
         email: userData.email,
         cpf: cpfLimpo,
         telefone: telefoneLimpo,
-        senha: userData.passwords
+        senha: userData.passwords,
       };
       
       console.log('Enviando para registro:', url, dadosParaEnviar);
@@ -86,43 +86,32 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         body: JSON.stringify(dadosParaEnviar),
       });
       
-      console.log('Status da resposta:', res.status);
-      console.log('Status da resposta:', await res.json());
+      const data = await res.json();
+
+      console.log("Status:", res.status);
+      console.log("Resposta:", data);
+
+
       
       // codigo com problema abaixo : CORRIGIR
       if (!res.ok) {
-        let errorMessage = "Erro ao realizar cadastro";
-        
-        try {
-          const errorData = await res.json();
-          console.log('Erro detalhado:', errorData);
-          errorMessage = errorData?.erro || errorData?.message || errorMessage;
-        } catch {
-          try {
-            const errorText = await res.text();
-            console.log('Erro texto:', errorText);
-            errorMessage = errorText || errorMessage;
-          } catch (e) {
-            console.log('Não foi possível ler o erro');
-        }
-      }
-        
-        throw new Error(errorMessage);
-      }
+      const errorMessage =
+        data?.erro || data?.message || "Erro ao realizar cadastro";
 
-      const tokenAPI: string = await res.json();
-      console.log('Token recebido:', tokenAPI ? 'Sim' : 'Não');
-      
-      await AsyncStorage.setItem("token", tokenAPI);
-      setToken(tokenAPI);
-      
-      return tokenAPI;
-      
-    } catch (error) {
-      console.error('Erro completo na requisição:', error);
-      throw error;
+      throw new Error(errorMessage);
     }
+
+    const tokenAPI: string = data;
+
+    await AsyncStorage.setItem("token", tokenAPI);
+    setToken(tokenAPI);
+
+    return tokenAPI;
+  } catch (error) {
+    console.error("Erro completo na requisição:", error);
+    throw error;
   }
+}
 
   async function signOut() {
     await AsyncStorage.removeItem("token");
