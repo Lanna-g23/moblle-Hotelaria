@@ -91,8 +91,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       console.log("Status:", res.status);
       console.log("Resposta:", data);
 
-
-      
       // codigo com problema abaixo : CORRIGIR
       if (!res.ok) {
       const errorMessage =
@@ -132,4 +130,4 @@ export const useAuth = () => {
   return ctx;
 };
 
-export default AuthProvider;
+export default AuthProvider;''
