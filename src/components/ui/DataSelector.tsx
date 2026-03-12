@@ -7,6 +7,7 @@ type Props = {
     onSelectDate: (date: string) => void;
     onClose?: () => void;
     title?: string;
+    minDate?: string;
 }
 
 const DateSelector = ({ onSelectDate, onClose, title = "Selecione a data" }: Props) => {
@@ -54,8 +55,8 @@ const DateSelector = ({ onSelectDate, onClose, title = "Selecione a data" }: Pro
                             textHeaderColor: Colors.goldPrimary,
                             textDefaultColor: Colors.textPrimary,
                             textSecondaryColor: Colors.textSecondary,
-                            textFontSize: responsiveFont(16),
-                            textHeaderFontSize: responsiveFont(17),
+                            textFontSize: responsiveFont(14),
+                            textHeaderFontSize: responsiveFont(16),
                             defaultFont: "System",
                             headerFont: "System",
                             backgroundColor: Colors.darkSecondary,
@@ -97,7 +98,6 @@ const DateSelector = ({ onSelectDate, onClose, title = "Selecione a data" }: Pro
     );
 };
 
-// Adicione essa linha se o responsiveFont não estiver sendo importado corretamente
 import { responsiveFont } from './style';
 
 export default DateSelector;

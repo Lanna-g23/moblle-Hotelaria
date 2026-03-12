@@ -35,8 +35,7 @@ const RenderLogin = () => {
 
     try {
         setLoading(true);
-        console.log("Tentando logar com:", { email, password });
-        await signIn(email.trim(), password);
+        await signIn(email, password);
         Alert.alert("Login bem-sucedido!");
         router.replace("/(tabs)/explorer");
     } catch (erro: any) {

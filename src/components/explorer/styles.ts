@@ -33,16 +33,19 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.darkPrimary,
   },
+
   scrollContent: {
     paddingHorizontal: responsiveWidth(5),
     paddingVertical: responsiveHeight(3),
     paddingTop: responsiveHeight(4),
   },
+
   container: {
     flex: 1,
     backgroundColor: Colors.darkPrimary,
     padding: responsiveWidth(5),
   },
+
   fieldContainer: {
     backgroundColor: Colors.darkSecondary,
     borderRadius: responsiveWidth(3),
@@ -53,10 +56,12 @@ export const styles = StyleSheet.create({
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
+
   fieldContainerGold: {
     borderColor: Colors.goldPrimary,
     borderWidth: 1.5,
   },
+
   fieldLabel: {
     fontSize: responsiveFont(12),
     fontWeight: '600',
@@ -65,18 +70,21 @@ export const styles = StyleSheet.create({
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
+
   fieldValue: {
     fontSize: responsiveFont(16),
     color: Colors.textPrimary,
     fontWeight: '400',
     letterSpacing: 0.3,
   },
+  
   fieldSubtitle: {
     fontSize: responsiveFont(13),
     color: Colors.textSecondary,
     marginTop: responsiveHeight(0.8),
     fontStyle: 'italic',
   },
+
   sectionTitle: {
     fontSize: responsiveFont(18),
     fontWeight: '600',
@@ -86,15 +94,18 @@ export const styles = StyleSheet.create({
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
+
   roomCardContainer: {
     width: responsiveWidth(75),
     marginRight: responsiveWidth(3),
   },
+
   dateInputContainer: {
     marginBottom: responsiveHeight(2),
     width: responsiveWidth(90),
     alignSelf: 'center',
   },
+
   guestsContainer: {
     alignItems: 'center',
     marginBottom: responsiveHeight(3),
@@ -106,6 +117,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.inputBorder,
   },
+
   guestsLabel: {
     fontSize: responsiveFont(13),
     fontWeight: '600',
@@ -114,15 +126,19 @@ export const styles = StyleSheet.create({
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
+
   inputSpinContainer: {
     width: responsiveWidth(50),
   },
+
   scrollViewContainer: {
     paddingHorizontal: responsiveWidth(3),
   },
+
   sectionContainer: {
     marginBottom: responsiveHeight(3),
   },
+
   goldDivider: {
     height: 1.5,
     backgroundColor: Colors.goldPrimary,
@@ -131,18 +147,22 @@ export const styles = StyleSheet.create({
     marginVertical: responsiveHeight(2.5),
     opacity: 0.5,
   },
+
   goldDot: {
     width: responsiveWidth(1.8),
     height: responsiveWidth(1.8),
     borderRadius: responsiveWidth(0.9),
     backgroundColor: Colors.goldPrimary,
   },
+
   iconGold: {
     color: Colors.goldPrimary,
   },
+
   iconLight: {
     color: Colors.textSecondary,
   },
+
   goldGradient: {
     position: 'absolute',
     top: 0,
@@ -152,4 +172,5 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.goldPrimary,
     opacity: 0.3,
   },
+
 });

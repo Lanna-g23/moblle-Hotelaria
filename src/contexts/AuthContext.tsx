@@ -15,7 +15,7 @@ type RegisterData = {
   email: string;
   cpf: string;
   telefone: string;
-  passwords: string;
+  password: string;
 };
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
@@ -63,9 +63,8 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   async function register(userData: RegisterData) {
     const url = `${API_URL}/login/cadastro`;
-
     try {
-      const cpfLimpo = userData.cpf.replace(/\D/g, "");
+    const cpfLimpo = userData.cpf.replace(/\D/g, "");
     const telefoneLimpo = userData.telefone.replace(/\D/g, "");
       
       const dadosParaEnviar = { 
@@ -73,7 +72,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         email: userData.email,
         cpf: cpfLimpo,
         telefone: telefoneLimpo,
-        senha: userData.passwords,
+        senha: userData.password,
       };
       
       console.log('Enviando para registro:', url, dadosParaEnviar);

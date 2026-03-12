@@ -11,7 +11,7 @@ export const style = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 44,
     elevation: 19,
-    shadowColor: '#000000',
+    shadowColor: '#080808',
     shadowOpacity: 0.6,
     shadowRadius: 10,
   },

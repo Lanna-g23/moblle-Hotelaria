@@ -3,7 +3,7 @@ import { useReserve } from '@/contexts/ReserveContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -69,7 +69,6 @@ const RenderReserve = () => {
           hospedes: reserve.guests,
           precoTotal: reserve.totalPrice
         };
-        
         return quartoData;
       });
 
@@ -116,7 +115,7 @@ const RenderReserve = () => {
                 await confirmSelectedReserves();
                 setConfirmed(true);
               } catch (error) {
-                console.error('🔴 Erro na confirmação:', error);
+                console.error('Erro na confirmação:', error);
                 Alert.alert('Erro', error instanceof Error ? error.message : 'Falha ao confirmar reservas');
               } finally {
                 setConfirmLoading(false);
@@ -420,7 +419,7 @@ const RenderReserve = () => {
                   position: 'absolute',
                   top: 10,
                   right: 10,
-                  backgroundColor: 'rgba(0,0,0,0.5)',
+                  backgroundColor: '#00000080',
                   borderRadius: 16,
                   padding: 4,
                 }}

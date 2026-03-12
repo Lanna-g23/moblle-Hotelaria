@@ -39,72 +39,46 @@ const RenderRegister = () => {
             return false;
         }
         
-        if (formData.password.length < 6) {
-            Alert.alert("Erro", "A senha deve ter pelo menos 6 caracteres");
-            return false;
-        }
-        
-        // validação básica de email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(formData.email)) {
-            Alert.alert("Erro", "E-mail inválido");
-            return false;
-        }
-        return true;
+            return true;
     };
+
     const handleRegister = async () => {
         if (!validateForm()) return;
         
         setLoading(true);
         
         try {
-            const dados = {
+            await register({
                 nome: formData.nome,
                 email: formData.email,
                 cpf: formData.cpf,
                 telefone: formData.phone,
-                passwords: formData.password
-            }
-            console.log('Iniciando registro com dados:', dados);
-            const token = await register(dados);
-            
-            console.log('Registro realizado com sucesso!');
+                password: formData.password
+            });
             
             Alert.alert(
                 "Sucesso", 
                 "Cadastro realizado com sucesso!",
-                [
-                    { 
-                        text: "OK", 
-                        onPress: () => router.push("/(auth)")
-                    }
-                ]
+                [{ text: "OK", onPress: () => router.push("/(auth)") }]
             );
-        } catch (error) {
-            console.error('Erro no registro:', error);
             
-            Alert.alert(
-                "Erro no Cadastro", 
-                error instanceof Error ? error.message : "Erro ao conectar com o servidor"
-            );
+        } catch (error) {
+            Alert.alert("Erro", error instanceof Error ? error.message : "Erro ao cadastrar");
         } finally {
             setLoading(false);
         }
     };
 
-    return(
-        <AuthContainer
-            title="Bem-Vindo"
-            subtitle="Faça seu cadastro"
-            icon="hotel"
-            >
-            <View style={style.leftArrow}>
+
+   return(
+        <AuthContainer title="Bem-Vindo" subtitle="Faça seu cadastro" icon="hotel">
+            <View style={style.leftArrow}> 
                 <TouchableOpacity onPress={() => router.push("/(auth)")}> 
-                    <MaterialCommunityIcons name="arrow-left" size={25} color="#9bc9f7" />
+                    <MaterialCommunityIcons name="arrow-left" size={25} color="#97baff" />
                 </TouchableOpacity>
             </View> 
 
-            {/* Campo Nome Completo */}
+            
             <View style={style.inputContainer}>
                 <Text style={style.inputLabel}>Nome Completo</Text>
                 <View style={style.inputWrapper}>
@@ -112,14 +86,14 @@ const RenderRegister = () => {
                     <TextInput
                         value={formData.nome}
                         onChangeText={(text) => handleChange('nome', text)}
-                        placeholder="Seu nome completo"
+                        placeholder="Digite seu nome Completo"
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
                         editable={!loading && !authLoading}
                     />
                 </View>
             </View>
-    
+
             {/* Campo E-mail */}
             <View style={style.inputContainer}>
                 <Text style={style.inputLabel}>E-mail</Text>
@@ -140,6 +114,25 @@ const RenderRegister = () => {
 
             {/* Campo CPF com máscara */}
             <View style={style.inputContainer}>
+                <Text style={style.inputLabel}>Telefone</Text>
+                <View style={style.inputWrapper}>
+                    <MaterialCommunityIcons name="phone" size={20} style={style.inputIcon} />
+                    <TextInputMask
+                        type={'cel-phone'}
+                        options={{ maskType: 'BRL', withDDD: true, dddMask: '(99) ' }}
+                        value={formData.phone}
+                        onChangeText={(text) => handleChange('phone', text)}
+                        placeholder="Digite seu Telefone"
+                        keyboardType="phone-pad"
+                        style={style.inputField}
+                        placeholderTextColor={style.placeholderColor.color}
+                        editable={!loading && !authLoading}
+                    />
+                </View>
+            </View>
+
+            {/* Campo Telefone com máscara */}
+            <View style={style.inputContainer}>
                 <Text style={style.inputLabel}>CPF</Text>
                 <View style={style.inputWrapper}>
                     <MaterialCommunityIcons name="card-account-details" size={20} style={style.inputIcon} />
@@ -156,29 +149,6 @@ const RenderRegister = () => {
                 </View>
             </View>
 
-            {/* Campo Telefone com máscara */}
-            <View style={style.inputContainer}>
-                <Text style={style.inputLabel}>Telefone</Text>
-                <View style={style.inputWrapper}>
-                    <MaterialCommunityIcons name="phone" size={20} style={style.inputIcon} />
-                    <TextInputMask
-                        type={'cel-phone'}
-                        options={{
-                            maskType: 'BRL',
-                            withDDD: true,
-                            dddMask: '(99) '
-                        }}
-                        value={formData.phone}
-                        onChangeText={(text) => handleChange('phone', text)}
-                        placeholder="Digite seu Telefone"
-                        keyboardType="phone-pad"
-                        style={style.inputField}
-                        placeholderTextColor={style.placeholderColor.color}
-                        editable={!loading && !authLoading}
-                    />
-                </View>
-            </View>
-
             {/* Campo Senha */}
             <View style={style.inputContainer}>
                 <Text style={style.inputLabel}>Senha</Text>
@@ -187,19 +157,14 @@ const RenderRegister = () => {
                     <TextInput
                         value={formData.password}
                         onChangeText={(text) => handleChange('password', text)}
-                        placeholder="Digite sua Senha"
+                        placeholder="Digite sua senha"
                         secureTextEntry={!showPassword}
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
                         editable={!loading && !authLoading}
                     />
-                    
                     <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-                        <MaterialCommunityIcons 
-                            name={showPassword ? "eye-off" : "eye"} 
-                            size={22} 
-                            style={style.eyeIcon} 
-                        />
+                        <MaterialCommunityIcons name={showPassword ? "eye-off" : "eye"} size={20} style={style.eyeIcon} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -212,18 +177,14 @@ const RenderRegister = () => {
                     <TextInput
                         value={formData.confirmPassword}
                         onChangeText={(text) => handleChange('confirmPassword', text)}
-                        placeholder="Confirma Senha"
+                        placeholder="Confirmar senha"
                         secureTextEntry={!showConfirmPassword}
                         style={style.inputField}
                         placeholderTextColor={style.placeholderColor.color}
                         editable={!loading && !authLoading}
                     />
                     <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-                        <MaterialCommunityIcons 
-                            name={showConfirmPassword ? "eye-off" : "eye"} 
-                            size={23} 
-                            style={style.eyeIcon} 
-                        />
+                        <MaterialCommunityIcons name={showConfirmPassword ? "eye-off" : "eye"} size={20} style={style.eyeIcon} />
                     </TouchableOpacity>
                 </View>
             </View>

@@ -69,18 +69,14 @@ export const ReserveProvider = ({ children }: { children: React.ReactNode }) => 
 
   const addReserve = async (reserve: ReserveItem) => {
     try {
-      const exists = pendingReserves.some(
-        r =>
-          r.roomId === reserve.roomId &&
-        r.checkIn === reserve.checkIn &&
-        r.checkOut === reserve.checkOut);
+      const exists = pendingReserves.some(r => r.roomId === reserve.roomId);
         
       if (!exists) {
         const newReserve = { ...reserve, selected: true };
         const updatedReserves = [...pendingReserves, newReserve];
         await savePendingReserves(updatedReserves);
       } else {
-       toggleSelectReserve(reserve.roomId);
+        await toggleSelectReserve(reserve.roomId);
       }
     } catch (error) {
       console.error('Erro ao adicionar reserva:', error);
@@ -92,22 +88,24 @@ export const ReserveProvider = ({ children }: { children: React.ReactNode }) => 
     await savePendingReserves(updatedReserves);
   };
 
-  const toggleSelectReserve = async (roomId: number) => {
+  const toggleSelectReserve = (roomId: number) => {
     const updatedReserves = pendingReserves.map(r => 
       r.roomId === roomId ? { ...r, selected: !r.selected } : r
   );
-
-    await savePendingReserves(updatedReserves);
+  setPendingReserves(updatedReserves);
+    AsyncStorage.setItem('@pending_reserves', JSON.stringify(updatedReserves)).catch(console.error);
   };
   
-  const selectAllReserves = async () => {
+  const selectAllReserves = () => {
     const updatedReserves = pendingReserves.map(r => ({ ...r, selected: true }));
-    await savePendingReserves(updatedReserves);
+    setPendingReserves(updatedReserves);
+    AsyncStorage.setItem('@pending_reserves', JSON.stringify(updatedReserves)).catch(console.error);
   };
 
-  const clearSelectedReserves = async () => {
+  const clearSelectedReserves =  () => {
     const updatedReserves = pendingReserves.filter(r => !r.selected);
-    await savePendingReserves(updatedReserves);
+    setPendingReserves(updatedReserves);
+    AsyncStorage.setItem('@pending_reserves', JSON.stringify(updatedReserves)).catch(console.error);
   };
 
   const clearAllReserves = async () => {
@@ -120,7 +118,6 @@ export const ReserveProvider = ({ children }: { children: React.ReactNode }) => 
     if (selected.length === 0) return;
 
     try {
-
       const remainingReserves = pendingReserves.filter(r => !r.selected);
       await savePendingReserves(remainingReserves);
       
@@ -131,25 +128,12 @@ export const ReserveProvider = ({ children }: { children: React.ReactNode }) => 
   };
 
   // Calcula totais das reservas selecionadas
-  const selectedReserves = React.useMemo(
-  () => pendingReserves.filter(r => r.selected),
-  [pendingReserves]
-);
+  const selectedReserves = pendingReserves.filter(r => r.selected);
+  
+  const totalSelectedPrice = selectedReserves.reduce((sum, r) => sum + r.totalPrice, 0);
+  const totalSelectedNights = selectedReserves.reduce((sum, r) => sum + r.nights, 0);
+  const totalSelectedGuests = selectedReserves.reduce((sum, r) => sum + r.guests, 0);
 
-const totalSelectedPrice = React.useMemo(
-  () => selectedReserves.reduce((sum, r) => sum + r.totalPrice, 0),
-  [selectedReserves]
-);
-
-const totalSelectedNights = React.useMemo(
-  () => selectedReserves.reduce((sum, r) => sum + r.nights, 0),
-  [selectedReserves]
-);
-
-const totalSelectedGuests = React.useMemo(
-  () => selectedReserves.reduce((sum, r) => sum + r.guests, 0),
-  [selectedReserves]
-);
   return (
     <ReserveContext.Provider 
       value={{ 
@@ -175,8 +159,6 @@ const totalSelectedGuests = React.useMemo(
 
 export const useReserve = () => {
   const context = useContext(ReserveContext);
-  if (!context) {
-    throw new Error('useReserve deve ser usado dentro de ReserveProvider');
-  }
-    return context;
+  if (!context) throw new Error('useReserve deve ser usado dentro de ReserveProvider');
+  return context;
 };

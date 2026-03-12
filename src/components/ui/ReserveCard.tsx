@@ -32,15 +32,12 @@ const ReserveCard = ({
 }: Props) => {
   
   const formatDate = (date: string) => {
-  const parsed = new Date(date);
-    if (!isNaN(parsed.getTime())) {
-    return parsed.toLocaleDateString('pt-BR', {
-      day: '2-digit',
-      month: '2-digit',
-    });
-  }
-  return date;
-};
+    if (date.includes('-')) {
+      const [year, month, day] = date.split('-');
+      return `${day}/${month}`;
+    }
+    return date;
+  };
 
   const getColor = () => {
     switch (status) {

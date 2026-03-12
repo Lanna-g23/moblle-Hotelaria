@@ -1,4 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
+import { responsiveFont } from '../ui/style';
 
 const { width, height } = Dimensions.get('window');
 const rf = (size: number) => size * (width / 375);
@@ -10,11 +11,25 @@ export const Colors = {
   goldPrimary: '#006eff',
   inputBackground: '#b2d7f8',
   inputText: '#006eff',
+  inputBorder: '#0066c0',
   grayLight: '#b2d7f8',
   textPrimary: '#e4f0fb',
   textSecondary: '#026ce5',
   overlay: '#03178b95',
 };
+
+/*
+darkPrimary: '#00094f',
+  darkSecondary: '#000d45',
+  darkTertiary: '#0015b8c2',
+  goldPrimary: '#006eff',
+  inputBackground: '#b2d7f8',
+  inputText: '#006eff',
+  grayLight: '#b2d7f8',
+  textPrimary: '#e4f0fb',
+  textSecondary: '#026ce5',
+  overlay: '#03178b95',
+*/
 
 export const styles = StyleSheet.create({
   scrollContainer: {
@@ -32,12 +47,13 @@ export const styles = StyleSheet.create({
     padding: 15,
     marginBottom: 18,
     borderWidth: 1,
+    borderColor: Colors.inputBorder,
   },
 
   fieldContainerGold: {
     borderColor: Colors.goldPrimary,
   },
-
+  
   fieldLabel: {
     fontSize: rf(13),
     color: Colors.goldPrimary,
@@ -90,6 +106,7 @@ export const styles = StyleSheet.create({
     fontSize: rf(14),
   },
 
+
   actionsContainer: {
     marginTop: 22,
   },
@@ -130,12 +147,22 @@ export const styles = StyleSheet.create({
     borderRadius: 18,
     overflow: 'hidden',
   },
-  
+
   modalHeader: {
     alignItems: 'center',
     padding: 25,
     borderBottomWidth: 4,
     borderBottomColor: Colors.goldPrimary,
+  },
+  
+  userDataText: {
+    color: Colors.textPrimary,
+    fontSize: responsiveFont(16),
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: Colors.goldPrimary + '40',
+    marginTop: 4,
   },
 
   modalTitle: {
